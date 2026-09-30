@@ -9,8 +9,11 @@ describe('PWA scope follows the deployment path', () => {
   it.each([
     [{}, '/'], [{ repository: 'person/screw-fall' }, '/screw-fall/'],
     [{ repository: 'person/another-tower' }, '/another-tower/'],
+    [{ repository: 'person/Screw-Fall' }, '/Screw-Fall/'],
+    [{ base: '', repository: 'person/Orbit-Tower' }, '/Orbit-Tower/'],
     [{ repository: 'person/person.github.io' }, '/'],
     [{ base: '/custom/path', repository: 'person/game' }, '/custom/path/'],
+    [{ base: '/Custom/Path', repository: 'person/Screw-Fall' }, '/Custom/Path/'],
     [{ base: '//custom///path//' }, '/custom/path/'],
   ])('resolves %j', (environment, expected) => {
     expect(resolveBase(environment)).toBe(expected);
@@ -38,6 +41,18 @@ describe('PWA scope follows the deployment path', () => {
   });
   it.each(['https://host/game', '/a/../b/', '/a/./', '/a?key=x', '/a#b', '/a/%2f/'])('rejects unsafe base %s', value => expect(() => normalizeBase(value)).toThrow());
   it('gives sibling paths distinct cache prefixes', () => expect(new Set(['/', '/a-b/', '/a/b/', '/ab/'].map(cacheIdForBase)).size).toBe(4));
+  it.each(['/Screw-Fall/', '/Orbit-Tower/'])('keeps case-distinct caches and navigation paths separate at %s', base => {
+    const variants = [base, base.toLowerCase(), base.toUpperCase()];
+    expect(new Set(variants.map(cacheIdForBase)).size).toBe(variants.length);
+    for (const variant of variants) {
+      const allowlist = workboxOptions(variant).navigateFallbackAllowlist[0];
+      for (const candidate of variants) {
+        for (const entry of ['', 'index.html', '?debug=1', 'index.html?debug=1']) {
+          expect(allowlist.test(candidate + entry)).toBe(candidate === variant);
+        }
+      }
+    }
+  });
   it('rejects escaping asset paths', () => { expect(() => appPath('/a/', '/assets/x')).toThrow(); expect(() => appPath('/a/', '../x')).toThrow(); });
   it('uses a version-independent manifest id and only validated commit metadata', () => {
     expect(buildInformation({ version: '1.0.0', commit: 'deadbeef123456' })).toEqual({ version: '1.0.0', build: 'deadbeef' });
@@ -59,6 +74,15 @@ describe('public sharing excludes development addresses and player state', () =>
     const share = vi.fn().mockResolvedValue(undefined);
     expect(await shareApp({ url: 'https://person.github.io/game/', navigatorObject: { share } })).toBe('Shared.');
     expect(share).toHaveBeenCalledWith({ title: 'Screw Fall', text: 'A smooth endless falling-tower arcade game.', url: 'https://person.github.io/game/' });
+  });
+  it.each(['/Screw-Fall/', '/Orbit-Tower/'])('preserves repository case when sharing or copying %s', async base => {
+    const url = publicAppUrl({ origin: `https://person.github.io${base}index.html?debug=1#private`, base, production: true });
+    expect(url).toBe(`https://person.github.io${base}`);
+    const share = vi.fn().mockResolvedValue(undefined), writeText = vi.fn().mockResolvedValue(undefined);
+    expect(await shareApp({ url, navigatorObject: { share } })).toBe('Shared.');
+    expect(share).toHaveBeenCalledExactlyOnceWith({ title: 'Screw Fall', text: 'A smooth endless falling-tower arcade game.', url });
+    expect(await shareApp({ url, navigatorObject: { clipboard: { writeText } } })).toBe('Link copied.');
+    expect(writeText).toHaveBeenCalledExactlyOnceWith(`https://person.github.io${base}`);
   });
   it('copies when share is unsupported or fails, and preserves a deliberate dismissal', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined), url = 'https://person.github.io/game/';

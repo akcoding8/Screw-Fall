@@ -45,21 +45,24 @@ Use a disposable browser profile for destructive storage tests. Debug manipulati
 
 ## Root and project-subpath builds
 
-The default local base is `/`. Exercise both required deployment shapes:
+The default local base is `/`. Exercise root, lowercase and case-preserving project paths, passing the same exact base to every command:
 
 ```sh
 SCREW_FALL_BASE=/ npm run build
 SCREW_FALL_BASE=/ npm run verify:pwa
-npm run verify:release
+SCREW_FALL_BASE=/ npm run verify:release
 SCREW_FALL_BASE=/screw-fall/ npm run build
 SCREW_FALL_BASE=/screw-fall/ npm run verify:pwa
-npm run verify:release
-SCREW_FALL_BASE=/screw-fall/ npm run preview
+SCREW_FALL_BASE=/screw-fall/ npm run verify:release
+SCREW_FALL_BASE=/Screw-Fall/ npm run build
+SCREW_FALL_BASE=/Screw-Fall/ npm run verify:pwa
+SCREW_FALL_BASE=/Screw-Fall/ npm run verify:release
+SCREW_FALL_BASE=/Screw-Fall/ npm run preview
 ```
 
-For that final preview, open the printed origin with `/screw-fall/` appended. Refresh and repeat the offline check there. Its manifest start URL, manifest scope, app identity and worker scope must all stay under `/screw-fall/`; visiting a sibling path must not return this game's cached shell.
+For that final preview, open the printed origin with `/Screw-Fall/` appended. Refresh and repeat the offline check there. Its manifest start URL, manifest scope, app identity and worker scope must all stay under `/Screw-Fall/`; visiting a sibling path must not return this game's cached shell.
 
-Pure path tests also cover an arbitrary repository name, a `.github.io` user-site repository, explicit override, duplicate slashes and missing trailing slashes. If finishing with an ordinary root preview, rebuild at `/` first. `verify:pwa` checks an existing `dist` build; it does not rebuild it silently.
+Pure path tests also cover arbitrary mixed-case repository names, a `.github.io` user-site repository, explicit override, duplicate slashes and missing trailing slashes. Workflow regression tests check that build and both verifier CLIs receive the resolver output, including when the repository override variable is empty. If finishing with an ordinary root preview, rebuild at `/` first. `verify:pwa` checks an existing `dist` build; it does not rebuild it silently.
 
 The production verifier checks manifest fields, dimensions, references, worker/precache presence, base-path consistency, private/local asset dependencies and file-size limits. It prints total build/precache sizes and the largest asset. Static verification is useful evidence, but it cannot prove iOS installation or an actual offline launch.
 

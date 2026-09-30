@@ -52,6 +52,8 @@ jobs:
           SCREW_FALL_BASE: ${{ steps.base.outputs.base }}
       - name: Verify release hygiene
         run: npm run verify:release
+        env:
+          SCREW_FALL_BASE: ${{ steps.base.outputs.base }}
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Upload production artifact

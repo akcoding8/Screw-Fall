@@ -4,7 +4,7 @@ import { cacheIdForBase, workboxOptions } from '../scripts/pwa-config.mjs';
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 describe('Workbox automatic cleanup is confined to the app cache', () => {
-  it.each(['/', '/screw-fall/', '/screw-fall/nested/'])('cleans obsolete app entries and preserves other caches at %s', async base => {
+  it.each(['/', '/screw-fall/', '/screw-fall/nested/', '/Screw-Fall/', '/Orbit-Tower/'])('cleans obsolete app entries and preserves other caches at %s', async base => {
     vi.stubEnv('NODE_ENV', 'production');
     const scope = `https://example.com${base}`;
     const ownName = `${cacheIdForBase(base)}-precache-v2-${scope}`;
@@ -20,6 +20,11 @@ describe('Workbox automatic cleanup is confined to the app cache', () => {
       [`unrelated-app-precache-v1-${scope}`, ['same-scope different-app data']],
       [`${cacheIdForBase(base)}-precache-v1-${scope}`, ['incompatible legacy format left untouched']],
     ]);
+    if (base !== base.toLowerCase()) {
+      const siblingBase = base.toLowerCase(), siblingScope = `https://example.com${siblingBase}`;
+      expect(cacheIdForBase(base)).not.toBe(cacheIdForBase(siblingBase));
+      unrelated.set(`${cacheIdForBase(siblingBase)}-precache-v2-${siblingScope}`, ['case-distinct sibling data']);
+    }
     const before = structuredClone([...unrelated]);
     const ownCache = {
       keys: vi.fn(async () => [...ownEntries.values()]),

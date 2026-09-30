@@ -85,7 +85,7 @@ GitHub documents the [Actions publishing source](https://docs.github.com/en/page
 
 ## How the workflow chooses the URL path
 
-Local builds default to `/`. In Actions, the build reads `GITHUB_REPOSITORY` automatically. A normal project repository uses `/<repository-name>/`; a user-site repository ending in `.github.io` uses `/`. The same normalized base supplies asset paths, manifest identity/start/scope, worker scope and the public share link. No username or repository name is embedded in the application.
+Local builds default to `/`. In Actions, the resolver reads `GITHUB_REPOSITORY` automatically. A normal project repository uses `/<repository-name>/`, preserving the repository name's case; a user-site repository ending in `.github.io` uses `/`. The workflow passes that one resolved output as `SCREW_FALL_BASE` to the production build, `verify:pwa` and `verify:release`. The same normalized base supplies asset paths, manifest identity/start/scope, worker scope and the public share link. No username or repository name is embedded in the application.
 
 The optional `SCREW_FALL_BASE` environment variable overrides the automatic path. A repository Actions **variable** of the same name can supply that override to the workflow; normally leave it unset. A future custom domain served from its root would require `/` and a separate review of hosting and storage implications. This project does not configure a custom domain.
 

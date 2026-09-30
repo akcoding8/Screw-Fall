@@ -3,11 +3,16 @@ import { copyFile, mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promi
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { fileURLToPath } from 'node:url';
 import { createManifest, cacheIdForBase, workboxOptions, MAX_PRECACHE_FILE_BYTES } from '../scripts/pwa-config.mjs';
 import { parsePrecache, parseVerificationArguments, verifyPwa } from '../scripts/verify-pwa.mjs';
 import { createIgnoreMatcher, scanReleaseText, verifyRelease } from '../scripts/verify-release.mjs';
 
 const directories = [];
+const runNode = (script, args, env) => promisify(execFile)(process.execPath,
+  [fileURLToPath(new URL(`../scripts/${script}`, import.meta.url)), ...args], { env });
 afterEach(async () => { await Promise.all(directories.splice(0).map(directory => rm(directory, { recursive: true, force: true }))); });
 
 async function write(directory, path, content) {
@@ -35,8 +40,8 @@ async function buildFixture(base = '/') {
   return { root, directory, base, worker, entries };
 }
 
-async function releaseFixture() {
-  const fixture = await buildFixture();
+async function releaseFixture(base = '/') {
+  const fixture = await buildFixture(base);
   const { root } = fixture;
   const files = ['.gitignore', '.nvmrc', 'package.json', 'package-lock.json', '.github/workflows/deploy-pages.yml'];
   for (const path of files) await write(root, path, await readFile(new URL(`../${path}`, import.meta.url)));
@@ -46,7 +51,7 @@ async function releaseFixture() {
 }
 
 describe('generated PWA output verification', () => {
-  it.each(['/', '/screw-fall/', '/another-personal-game/'])('accepts a complete build scoped to %s', async base => {
+  it.each(['/', '/screw-fall/', '/Screw-Fall/', '/another-personal-game/'])('accepts a complete build scoped to %s', async base => {
     const fixture = await buildFixture(base);
     const report = await verifyPwa(fixture);
     expect(report.errors).toEqual([]);
@@ -181,6 +186,40 @@ describe('generated PWA output verification', () => {
 });
 
 describe('public release hygiene verification', () => {
+  it.each([
+    ['person/person.github.io', '', '/'],
+    ['person/screw-fall', '', '/screw-fall/'],
+    ['person/Screw-Fall', '', '/Screw-Fall/'],
+    ['person/Renamed-Game', '', '/Renamed-Game/'],
+    ['person/Screw-Fall', '/Custom-Path/', '/Custom-Path/'],
+  ])('passes one resolved Pages base through build and both verifier CLIs for %s (override %s)', async (repository, override, expected) => {
+    // An unset Actions variable is an empty string, not an absent environment
+    // variable. Exercise the CLI boundary that the direct verifier tests omit.
+    const jobEnv = { ...process.env, GITHUB_REPOSITORY: repository, SCREW_FALL_BASE: override };
+    const { stdout } = await runNode('resolve-base.mjs', [], jobEnv);
+    const base = stdout.trim();
+    expect(base).toBe(expected);
+    const fixture = await releaseFixture(base);
+    const workflow = await readFile(new URL('../.github/workflows/deploy-pages.yml', import.meta.url), 'utf8');
+    const steps = workflow.split(/^      - name: /m).slice(1);
+    for (const command of ['build', 'verify:pwa', 'verify:release']) {
+      const matches = steps.filter(step => step.split('\n').some(line => line.trim() === `run: npm run ${command}`));
+      expect(matches, `Unique ${command} workflow step`).toHaveLength(1);
+      const baseInput = matches[0].match(/^          SCREW_FALL_BASE: (.+)$/m)?.[1];
+      expect(baseInput, `${command} must receive the resolver output`).toBe('${{ steps.base.outputs.base }}');
+      const env = { ...jobEnv, SCREW_FALL_BASE: base };
+      if (command === 'build') continue; // The fixture represents that base's build.
+      const script = command === 'verify:pwa' ? 'verify-pwa.mjs' : 'verify-release.mjs';
+      const args = ['--dir', fixture.directory, '--json'];
+      if (command === 'verify:release') args.push('--root', fixture.root);
+      // Deliberately omit --base: CI passes the resolved value via the environment.
+      const result = JSON.parse((await runNode(script, args, env)).stdout);
+      expect(result.errors).toEqual([]);
+      expect(result.ok).toBe(true);
+      expect(command === 'verify:pwa' ? result.base : result.pwa.base).toBe(expected);
+    }
+  });
+
   it('uses ordered ignore rules without hiding the example environment template', () => {
     const ignore = createIgnoreMatcher('node_modules/\n.env*\n!.env.example\n*.log\nartifacts/\n');
     expect(ignore('node_modules/module/index.js')).toBe(true);
