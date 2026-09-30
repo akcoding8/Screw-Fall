@@ -67,6 +67,8 @@ describe('Flow route demand and conservative reachability', () => {
     expect(validateFlowFeasibility(level).errors.some(error => /curvature|jerk/.test(error))).toBe(true);
   });
 
+  // Each candidate runs 21 controller simulations, with up to four attempts per
+  // level. Give this exhaustive sweep headroom on shared CI runners.
   it('checks all 541 remaining required-range Flow levels, with bounded attempts and no fallback', () => {
     const numbers = [...Array.from({ length: 500 }, (_, index) => (index + 1) * 10),
       ...Array.from({ length: 100 }, (_, index) => 100010 + index * 10), Number.MAX_SAFE_INTEGER - 1].filter(number => number % 100 !== 0);
@@ -86,7 +88,7 @@ describe('Flow route demand and conservative reachability', () => {
     expect(variedTrials).toBeGreaterThan(100);
     expect(moderateSuccess).toBeGreaterThan(0);
     expect(moderateSuccess).toBeLessThan(moderateTrials * .5);
-  });
+  }, 30_000);
 
   it.each([10, 20, Number.MAX_SAFE_INTEGER - 1])('uses a valid bounded conservative fallback for %s', number => {
     const level = generateLevel(number, { validator: () => ({ valid: false, errors: ['forced test failure'] }) });
