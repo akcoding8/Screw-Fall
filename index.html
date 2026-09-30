@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#233c37" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Screw Fall" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="description" content="A smooth endless falling-tower arcade game." />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%icons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%BASE_URL%icons/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%icons/apple-touch-icon-180.png" />
+    <title>Screw Fall</title>
+  </head>
+  <body>
+    <main id="game" aria-label="Rotating tower game">
+      <canvas id="scene" aria-label="Drag left or right to rotate the tower"></canvas>
+      <div class="interface">
+        <header class="topbar">
+          <div class="wordmark"><span class="brand-symbol" aria-hidden="true">≋</span><span id="title"></span></div>
+          <div class="toolbar-controls">
+            <button id="skins-toggle" class="skins-button" type="button" aria-haspopup="dialog" aria-controls="skins-panel">Skins</button>
+            <button id="settings-toggle" class="icon-button" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-panel" title="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3-.7 2.3-2 .9L4 5.7 2.5 8.3l1.7 1.8v2.2l-1.7 1.8L4 16.7l2.3-.5 2 .9L9 19.4h3l.7-2.3 2-.9 2.3.5 1.5-2.6-1.7-1.8v-2.2l1.7-1.8L17 5.7l-2.3.5-2-.9L12 3Z" transform="translate(1.5 1)"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </div>
+        </header>
+        <div class="level-heading"><h1>Level <span id="level">1</span></h1><span id="milestone-label" hidden><svg class="british-emblem" viewBox="0 0 60 36" aria-hidden="true"><path fill="#153569" d="M0 0h60v36H0z"/><path stroke="#faf6ea" stroke-width="8" d="m0 0 60 36M60 0 0 36"/><path stroke="#b52340" stroke-width="3" d="m0 0 60 36M60 0 0 36"/><path stroke="#faf6ea" stroke-width="12" d="M30 0v36M0 18h60"/><path stroke="#b52340" stroke-width="6" d="M30 0v36M0 18h60"/></svg> British Milestone</span><span id="flow-label" hidden><span aria-hidden="true">≋</span> Flow level</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Tower descent" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress"></span></div>
+        <div id="energy" class="energy" aria-live="polite">Smash ready <span>↓</span></div>
+        <div id="score-hud" class="score-hud" hidden><span>Score</span><strong id="score-current">0</strong></div>
+        <div id="score-record" class="score-record" role="status" hidden>New best</div>
+        <div id="score-feedback" class="score-feedback" aria-hidden="true" hidden><strong id="score-multiplier"></strong><span id="score-award"></span></div>
+        <div class="bottom-copy" id="message" aria-live="polite">
+          <div class="gesture" id="tutorial-gesture" aria-hidden="true"><span>←</span><i></i><span>→</span></div>
+          <div id="death-score" class="death-score" hidden><span>Score <strong id="death-score-value">0</strong></span><span>Best <strong id="death-best-value">0</strong></span><em id="death-record" hidden>New best</em></div>
+          <h2 id="message-title">Drag to rotate</h2>
+          <p id="message-detail">Move left or right to find a gap.</p>
+          <div id="score-holding" class="score-holding"><span>Best <strong id="score-best">0</strong></span><span>Points <strong id="score-points">0</strong></span></div>
+        </div>
+      </div>
+      <div id="rotate-device" class="blocking-overlay" hidden><span class="device-symbol" aria-hidden="true">↻</span><h2>Rotate your device</h2><p>Use portrait orientation to play.</p></div>
+      <div id="error" class="blocking-overlay" hidden><h2>Unable to display the game</h2><p id="error-detail"></p></div>
+      <aside id="debug" hidden><details open><summary>Debug tools</summary><pre id="debug-info"></pre><div id="debug-controls">
+        <button type="button" data-debug="interpolation" aria-pressed="false">Raw motion</button><button type="button" data-debug="walls" aria-pressed="false">Wall colliders</button>
+        <label for="debug-speed">Terminal speed</label><select id="debug-speed"><option value="100">100% · 23</option><option value="90">90% · 20.7</option><option value="80" selected>80% · 18.4</option><option value="75">75% · 17.25</option></select>
+        <label for="debug-level">Preview level</label><input id="debug-level" type="number" min="1" max="9007199254740991" step="1" value="1" inputmode="numeric" />
+        <button type="button" data-debug="jump">Go to level</button><button type="button" data-debug="guides" aria-pressed="false">Viewport guides</button>
+        <button type="button" data-debug="previous">Previous</button><button type="button" data-debug="next">Next</button>
+        <button type="button" data-debug="flow">Next Flow</button><button type="button" data-debug="regenerate">Regenerate</button>
+        <button type="button" data-debug="route" aria-pressed="false">Route</button><button type="button" data-debug="motion" aria-pressed="false">Pause motion</button>
+        <button type="button" data-debug="drops" aria-pressed="false">Drop corridors</button><button type="button" data-debug="gaps" aria-pressed="false">Shared gaps</button>
+        <button type="button" data-debug="footprint" aria-pressed="false">Ball footprint</button><button type="button" data-debug="hazards" aria-pressed="false">Hazard / tip edges</button>
+        <div id="debug-flow-controls" hidden><button type="button" data-debug="flow-ideal">Replay ideal</button><button type="button" data-debug="flow-skilled">Replay skilled</button><button type="button" data-debug="flow-manual">Reset to manual</button><button type="button" data-debug="flow-trajectories" aria-pressed="false">Flow trajectories / rate graph</button><div id="debug-flow-graph" hidden></div></div>
+        <button type="button" data-debug="return">Return to saved level</button>
+        <div id="debug-progression-controls">
+          <p>Session-only progression tools</p>
+          <button type="button" data-debug="import-start">Simulate starting Level 1,757</button><button type="button" data-debug="import-adjust">Simulate imported +32</button>
+          <button type="button" data-debug="milestone-100">Preview British Level 100</button><button type="button" data-debug="milestone-200">Preview British Level 200</button><button type="button" data-debug="british-palette" aria-pressed="false">Toggle British Soft / Vivid</button>
+          <button type="button" data-debug="test-points">Grant 20,000 test Points</button><button type="button" data-debug="reset-scores">Reset test scores</button>
+          <button type="button" data-debug="premium-points">Grant 1,000,000 test Points</button><button type="button" data-debug="premium-milestone">Reach test Premium milestone</button>
+          <button type="button" data-debug="unlock-skins">Unlock all for this session</button><button type="button" data-debug="effect-profile">Cycle effect profile</button>
+          <label for="debug-skin">Preview skin</label><select id="debug-skin"></select>
+          <button type="button" data-debug="skin-envelope" aria-pressed="false">Collider / visual envelope</button><button type="button" data-debug="paint-attachment" aria-pressed="false">Paint attachment guides</button>
+          <button type="button" data-debug="paint-edge">Force edge splash</button><button type="button" data-debug="paint-smash">Force paint smash</button>
+        </div>
+      </div><button id="reset-progress" type="button">Reset local progress</button></details></aside>
+      <dialog id="settings-panel" aria-labelledby="settings-heading">
+        <header class="settings-header"><h2 id="settings-heading">Settings</h2><button id="settings-done" type="button">Done</button></header>
+        <div class="settings-scroll">
+          <section class="settings-section"><h3>Gameplay</h3>
+            <div class="setting-label"><label for="sensitivity-slider">Tower sensitivity</label><output id="sensitivity-value" for="sensitivity-slider">1.2×</output></div>
+            <input id="sensitivity-slider" type="range" min="0.5" max="3.0" step="0.1" value="1.2" aria-describedby="sensitivity-help" />
+            <div class="slider-limits" aria-hidden="true"><span>0.5×</span><span>3.0×</span></div>
+            <p id="sensitivity-help">Higher values rotate farther for the same movement.</p>
+            <label class="setting-label" for="palette-style">Palette style</label>
+            <select id="palette-style"><option value="soft">Soft</option><option value="vivid">Vivid</option><option value="mixed">Mixed</option></select>
+          </section>
+          <section class="settings-section"><h3>Audio</h3><div class="setting-label"><span>Sound <span id="sound-status">On</span></span><button id="mute" class="icon-button" type="button" aria-label="Mute sound" title="Mute sound"></button></div></section>
+          <section class="settings-section"><h3>Progress</h3><p id="settings-progress-summary"></p><button id="progress-open" class="settings-link" type="button" aria-haspopup="dialog" aria-controls="progress-panel">View progress <span aria-hidden="true">→</span></button></section>
+          <details class="settings-section"><summary>Stats</summary><dl class="settings-stats"><div><dt>Current no-death score</dt><dd id="settings-current">0</dd></div><div><dt>Best score</dt><dd id="settings-best">0</dd></div><div><dt>Available Points</dt><dd id="settings-points">0</dd></div><div><dt>Lifetime Points</dt><dd id="settings-lifetime">0</dd></div><div><dt>Levels completed here</dt><dd id="settings-completed">0</dd></div><div><dt>Owned skins</dt><dd id="settings-owned">1 / 27</dd></div><div><dt>Premium</dt><dd id="settings-premium">Locked</dd></div></dl></details>
+          <details class="settings-section"><summary>Help</summary><p>Drag left or right to rotate. Find gaps and avoid marked hazards. Clear three platforms without landing to prepare a smash. Walls are always lethal.</p><button id="show-tutorial" class="settings-link" type="button">Show controls again</button></details>
+          <details class="settings-section"><summary>Install</summary><p id="pwa-install-status">Play in your browser or install</p><p id="pwa-install-help"></p><button id="pwa-install" class="settings-link" type="button" hidden>Install Screw Fall</button></details>
+          <details class="settings-section" id="about-section"><summary>About</summary>
+            <p>Screw Fall</p><p id="pwa-version"></p><p id="pwa-display-status"></p><p id="pwa-offline" role="status"></p><p id="pwa-update-status" role="status"></p>
+            <button id="pwa-check" class="settings-link" type="button" hidden>Check for updates</button><button id="pwa-update-now" class="settings-link" type="button" hidden>Update now</button>
+            <button id="pwa-share" class="settings-link" type="button">Share Screw Fall</button><p id="pwa-share-status" class="field-help" role="status"></p>
+            <p>Progress and screenshots stay on this device, in this browser. There is no account or cloud sync.</p><p>No ads or analytics. No gameplay data is sent to a server.</p><p>Clearing site data can remove your progress and screenshots. A different web address or browser has separate storage.</p>
+          </details>
+        </div>
+      </dialog>
+      <div id="pwa-toast" role="status" hidden></div>
+      <dialog id="pwa-update-dialog" aria-labelledby="pwa-update-heading" aria-describedby="pwa-update-detail"><h2 id="pwa-update-heading">Update ready</h2><p id="pwa-update-detail">A new version of Screw Fall is available.</p><div class="progress-actions"><button id="pwa-restart" class="primary-button" type="button">Restart now</button><button id="pwa-later" class="text-button" type="button">Later</button></div></dialog>
+      <dialog id="progress-panel" class="progress-panel" aria-labelledby="progress-heading">
+        <header class="settings-header"><button id="progress-back" class="text-button" type="button" hidden>Back</button><h2 id="progress-heading">Progress</h2><button id="progress-done" class="text-button" type="button">Done</button></header>
+        <div class="progress-scroll">
+          <section id="progress-overview">
+            <p class="progress-kicker">Current level</p><strong id="progress-current" class="progress-current">1</strong>
+            <dl class="settings-stats"><div><dt>Starting level</dt><dd id="progress-starting">1</dd></div><div><dt>Levels completed here</dt><dd id="progress-completed">0</dd></div><div><dt>Later imported progress</dt><dd id="progress-adjustments">0</dd></div><div><dt>Screenshots attached</dt><dd id="progress-evidence-count">0</dd></div></dl>
+            <button id="progress-import" class="settings-link" type="button">Continue from another game <span aria-hidden="true">→</span></button>
+            <button id="progress-adjust" class="settings-link" type="button">Add or correct imported progress <span aria-hidden="true">→</span></button>
+            <button id="progress-history-open" class="settings-link" type="button">History and screenshots <span aria-hidden="true">→</span></button>
+          </section>
+          <section id="progress-question" hidden><h3 id="progress-question-text"></h3><div class="progress-actions"><button id="progress-yes" class="primary-button" type="button">Yes, continue</button><button id="progress-no" class="text-button" type="button">Not now</button></div></section>
+          <section id="progress-form" hidden>
+            <p id="progress-form-help"></p>
+            <label id="progress-number-label" for="progress-number">Starting level</label><input id="progress-number" type="text" inputmode="numeric" autocomplete="off" maxlength="20" aria-describedby="progress-range progress-error" />
+            <small id="progress-range"></small>
+            <div id="progress-reason-row" hidden><label for="progress-reason">Reason</label><select id="progress-reason"><option value="elsewhere">Progress completed elsewhere</option><option value="correction">Correct a previous entry</option><option value="other">Other</option></select><label for="progress-note">Note (optional)</label><textarea id="progress-note" rows="2" maxlength="500"></textarea></div>
+            <label for="progress-source">Previous game or source (optional)</label><input id="progress-source" type="text" maxlength="120" autocomplete="off" />
+            <label for="progress-file">Screenshot (optional)</label><input id="progress-file" type="file" accept="image/*" />
+            <p id="progress-file-status" class="field-help" role="status"></p><img id="progress-thumbnail" class="evidence-thumbnail" alt="Selected screenshot thumbnail" hidden /><button id="progress-file-clear" class="text-button" type="button" hidden>Remove selected screenshot</button>
+            <p class="field-help">Player-provided screenshot. Screw Fall does not verify its contents.</p>
+            <button id="progress-preview" class="primary-button" type="button">Review change</button>
+          </section>
+          <section id="progress-review" hidden><h3>Review progress change</h3><dl id="progress-preview-values" class="settings-stats"></dl><p>Points, scores, skins and levels completed here stay unchanged.</p><p id="progress-record-notice"></p><button id="progress-confirm" class="primary-button" type="button">Confirm change</button></section>
+          <section id="progress-history" hidden><p class="field-help">Number records stay in your history. To correct one, add another adjustment.</p><div id="progress-history-list"></div><p id="progress-history-total"></p><input id="history-file" type="file" accept="image/*" hidden /></section>
+          <section id="progress-remove" hidden><h3>Remove this screenshot?</h3><p>The level record stays in your history.</p><button id="progress-remove-confirm" class="primary-button" type="button">Remove screenshot</button><button id="progress-remove-cancel" class="text-button" type="button">Keep screenshot</button></section>
+          <section id="progress-attachment" hidden><h3 id="progress-attachment-heading">Attach this screenshot?</h3><img id="progress-attachment-thumbnail" class="evidence-thumbnail" alt="Screenshot preview" /><p class="field-help">Player-provided screenshot. Screw Fall does not verify its contents.</p><p>The level record stays unchanged.</p><button id="progress-attachment-confirm" class="primary-button" type="button">Attach screenshot</button><button id="progress-attachment-cancel" class="text-button" type="button">Cancel</button></section>
+          <p id="progress-error" class="form-error" role="alert"></p><p id="progress-status" class="field-help" role="status"></p>
+        </div>
+      </dialog>
+      <dialog id="evidence-viewer" aria-labelledby="evidence-caption"><header><button id="evidence-zoom" type="button">100%</button><button id="evidence-close" type="button">Close</button></header><div class="evidence-image-scroll"><img id="evidence-image" alt="Player-provided progress screenshot" /></div><p id="evidence-caption">Player-provided screenshot. Screw Fall does not verify its contents.</p></dialog>
+      <dialog id="skins-panel" aria-labelledby="skins-heading">
+        <header class="skins-header"><h2 id="skins-heading">Skins</h2><button id="skins-done" type="button">Done</button></header>
+        <div class="skins-balance" id="skins-balance">0 Points</div>
+        <div class="skin-tabs" role="tablist" aria-label="Skin collection"><button id="skins-standard" type="button" role="tab" aria-selected="true" aria-controls="skins-collection">Standard</button><button id="skins-premium" type="button" role="tab" aria-selected="false" aria-controls="skins-collection" tabindex="-1">Premium <span id="premium-lock-label">· Locked</span></button></div>
+        <div class="skins-scroll">
+          <section id="premium-unlock" class="premium-unlock" role="tabpanel" aria-labelledby="skins-premium" aria-live="polite" hidden><p>Premium unlocks at 100,000 lifetime points</p><strong id="premium-progress">0 / 100,000</strong><progress id="premium-progress-bar" value="0" max="100000" aria-label="Lifetime points toward Premium"></progress><small>Purchases use your available Points.</small></section>
+          <div id="skins-collection" role="tabpanel" aria-labelledby="skins-standard">
+          <section class="skin-feature" aria-label="Selected skin">
+            <canvas id="skin-preview" width="256" height="256" aria-label="Rotating preview of the selected skin"></canvas>
+            <div class="skin-description"><span id="skin-category" class="eyebrow">Core</span><h3 id="skin-name">Classic</h3><p id="skin-summary"></p><span id="skin-price">Equipped</span></div>
+          </section>
+          <div class="skin-action-area"><canvas id="purchase-celebration" width="440" height="180" aria-hidden="true" hidden></canvas><button id="skin-action" type="button" disabled>Equipped</button><p id="skin-status" role="status"></p></div>
+          <div id="skins-grid" aria-label="Standard skins"></div>
+          </div>
+          <details class="skin-stats"><summary>Stats</summary><dl><div><dt>Available Points</dt><dd id="stat-points">0</dd></div><div><dt>Lifetime Points</dt><dd id="stat-lifetime">0</dd></div><div><dt>Current Score</dt><dd id="stat-current">0</dd></div><div><dt>Best Score</dt><dd id="stat-best">0</dd></div><div><dt>Owned skins</dt><dd id="stat-owned">1 / 27</dd></div></dl></details>
+        </div>
+      </dialog>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

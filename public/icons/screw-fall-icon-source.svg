@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="icon-title icon-description">
+  <title id="icon-title">Screw Fall app icon</title>
+  <desc id="icon-description">An original glossy coral ball descending through offset ivory and teal tower platforms on a deep teal background.</desc>
+  <!-- Original vector artwork. The full square is opaque; operating systems supply the corner mask. -->
+  <!-- Core artwork is contained within the centred maskable safe circle of radius 409.6. -->
+  <defs>
+    <radialGradient id="background" cx="35%" cy="25%" r="90%">
+      <stop stop-color="#35645e"/><stop offset=".56" stop-color="#234f4d"/><stop offset="1" stop-color="#122f33"/>
+    </radialGradient>
+    <linearGradient id="column" x1="0" x2="1">
+      <stop stop-color="#153d3e"/><stop offset=".26" stop-color="#457d75"/><stop offset=".48" stop-color="#5a9283"/><stop offset=".7" stop-color="#3b706b"/><stop offset="1" stop-color="#183f41"/>
+    </linearGradient>
+    <linearGradient id="ivory" x1=".1" y1="0" x2=".65" y2="1">
+      <stop stop-color="#fff8df"/><stop offset=".54" stop-color="#e9eacb"/><stop offset="1" stop-color="#bed4b6"/>
+    </linearGradient>
+    <linearGradient id="jade" x1=".1" y1="0" x2=".7" y2="1">
+      <stop stop-color="#a2ead0"/><stop offset=".5" stop-color="#5bc7a5"/><stop offset="1" stop-color="#329f87"/>
+    </linearGradient>
+    <radialGradient id="ball" cx="32%" cy="22%" r="78%">
+      <stop stop-color="#fff2bf"/><stop offset=".2" stop-color="#ffc294"/><stop offset=".54" stop-color="#f48e71"/><stop offset=".85" stop-color="#de655b"/><stop offset="1" stop-color="#a9404a"/>
+    </radialGradient>
+    <radialGradient id="ball-glint" cx="42%" cy="25%" r="76%">
+      <stop stop-color="#ffffff" stop-opacity=".9"/><stop offset="1" stop-color="#fffbe8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fall-trail" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff2ca" stop-opacity="0"/><stop offset="1" stop-color="#fff2ca" stop-opacity=".46"/>
+    </linearGradient>
+  </defs>
+  <rect id="icon-background" width="1024" height="1024" fill="url(#background)"/>
+  <g id="icon-artwork">
+    <ellipse cx="502" cy="810" rx="209" ry="27" fill="#0b252b" opacity=".32"/>
+    <path d="M466 277v492c0 28 92 28 92 0V277Z" fill="url(#column)"/>
+    <ellipse cx="512" cy="277" rx="46" ry="17" fill="#73a691"/>
+    <path d="M485 301v429" fill="none" stroke="#a5d2b5" stroke-opacity=".15" stroke-width="5"/>
+    <g id="lower-platform">
+      <path d="M548.65 819.88 A279 91 0 1 1 770.34 758.12 L592.5 739.27 A92 30 0 1 0 519.39 759.63 Z" fill="#638c7c"/>
+      <path d="M548.65 788.88 A279 91 0 0 1 226 699 L226 730 A279 91 0 0 0 548.65 819.88 Z" fill="#638c7c"/>
+      <path d="M784 699 A279 91 0 0 1 770.34 727.12 L770.34 758.12 A279 91 0 0 0 784 730 Z" fill="#638c7c"/>
+      <path d="M548.65 788.88 L519.39 728.63 L519.39 759.63 L548.65 819.88 Z" fill="#638c7c"/>
+      <path d="M770.34 727.12 L592.5 708.27 L592.5 739.27 L770.34 758.12 Z" fill="#638c7c"/>
+      <path d="M548.65 788.88 A279 91 0 1 1 770.34 727.12 L592.5 708.27 A92 30 0 1 0 519.39 728.63 Z" fill="url(#ivory)"/>
+      <path d="M543.55 787.13 A277 89 0 1 1 769.9 725.02" fill="none" stroke="#ffffff" stroke-opacity=".26" stroke-width="4"/>
+    </g>
+    <g id="middle-platform">
+      <path d="M256.68 549.79 A284 94 0 1 1 353.07 661.05 L465.92 609.27 A92 30 0 1 0 434.7 573.76 Z" fill="#247a70"/>
+      <path d="M804 554 A284 94 0 0 1 353.07 630.05 L353.07 661.05 A284 94 0 0 0 804 585 Z" fill="#247a70"/>
+      <path d="M256.68 518.79 L434.7 542.76 L434.7 573.76 L256.68 549.79 Z" fill="#247a70"/>
+      <path d="M353.07 630.05 L465.92 578.27 L465.92 609.27 L353.07 661.05 Z" fill="#247a70"/>
+      <path d="M256.68 518.79 A284 94 0 1 1 353.07 630.05 L465.92 578.27 A92 30 0 1 0 434.7 542.76 Z" fill="url(#jade)"/>
+      <path d="M260.42 518.05 A282 92 0 1 1 358.25 629.36" fill="none" stroke="#ffffff" stroke-opacity=".26" stroke-width="4"/>
+    </g>
+    <g id="upper-platform">
+      <path d="M564.67 538.9 A287 96 0 1 1 790.91 453.37 L596.65 447.61 A92 30 0 1 0 524.13 474.34 Z" fill="#7f9e8a"/>
+      <path d="M564.67 507.9 A287 96 0 0 1 218 414 L218 445 A287 96 0 0 0 564.67 538.9 Z" fill="#7f9e8a"/>
+      <path d="M792 414 A287 96 0 0 1 790.91 422.37 L790.91 453.37 A287 96 0 0 0 792 445 Z" fill="#7f9e8a"/>
+      <path d="M564.67 507.9 L524.13 443.34 L524.13 474.34 L564.67 538.9 Z" fill="#7f9e8a"/>
+      <path d="M790.91 422.37 L596.65 416.61 L596.65 447.61 L790.91 453.37 Z" fill="#7f9e8a"/>
+      <path d="M564.67 507.9 A287 96 0 1 1 790.91 422.37 L596.65 416.61 A92 30 0 1 0 524.13 443.34 Z" fill="url(#ivory)"/>
+      <path d="M559.38 506.27 A285 94 0 1 1 789.31 420.56" fill="none" stroke="#ffffff" stroke-opacity=".26" stroke-width="4"/>
+    </g>
+    <path d="M672 204v45M693 219v22M651 228v24" fill="none" stroke="url(#fall-trail)" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="683" cy="451" rx="65" ry="18" fill="#15383b" opacity=".2"/>
+    <circle cx="681" cy="343" r="91" fill="url(#ball)"/>
+    <path d="M612 314c12-40 57-60 93-38-42-8-66 7-83 37Z" fill="#fff9df" opacity=".75"/>
+    <ellipse cx="650" cy="303" rx="35" ry="26" transform="rotate(-28 650 303)" fill="url(#ball-glint)"/>
+    <path d="M731 382c-15 28-39 37-63 35" fill="none" stroke="#ffca96" stroke-opacity=".42" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

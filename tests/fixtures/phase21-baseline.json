@@ -1,0 +1,520 @@
+{
+  "phase": "2.1 before Phase 2.2",
+  "verification": {
+    "tests": 573,
+    "testFiles": 25,
+    "buildJsKb": 700.72,
+    "buildGzipKb": 184.9
+  },
+  "config": {
+    "title": "Screw Fall",
+    "physics": {
+      "bounceGravity": 28,
+      "freeFallGravity": 24.5,
+      "bounceVelocity": 9.058875,
+      "maxDownwardSpeed": 18.4,
+      "ballRadius": 0.275,
+      "fixedStep": 0.008333333333333333,
+      "maxFrameDelta": 0.1,
+      "maxSubsteps": 12
+    },
+    "world": {
+      "platformSpacing": 2.25,
+      "ballOrbitRadius": 2.05,
+      "ballWorldAngle": 1.5707963267948966,
+      "innerRadius": 0.73,
+      "outerRadius": 2.85,
+      "platformThickness": 0.27
+    },
+    "input": {
+      "sensitivity": 5.2,
+      "multiplier": {
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "default": 1.2
+      },
+      "directionSign": 1,
+      "dragThreshold": 3,
+      "tapMaxDistance": 12,
+      "tapMaxDuration": 500
+    },
+    "smash": {
+      "threshold": 3
+    },
+    "timing": {
+      "deathDuration": 0.48,
+      "completionHold": 1
+    },
+    "camera": {
+      "followResponse": 6,
+      "fieldOfView": 40,
+      "distance": 13.8,
+      "height": 7.8,
+      "targetOffset": -1,
+      "pitchDegrees": 35.5,
+      "contactScreenAnchor": 0.43,
+      "maxContactScreenLag": 0.02,
+      "portraitWidth": 8.1,
+      "impactStrength": 0.09,
+      "smashStrength": 0.18
+    },
+    "particles": {
+      "maxParticles": 160,
+      "maxFragments": 120,
+      "passCount": 5,
+      "smashCount": 12,
+      "deathCount": 24,
+      "confettiCount": 64,
+      "lifetime": 0.65,
+      "impactLifetime": 0.42,
+      "fragmentLifetime": 1.2,
+      "fragmentChunkAngle": 0.7853981633974483,
+      "passFragmentCount": 10,
+      "smashFragmentCount": 12,
+      "fragmentOutwardMin": 5.2,
+      "fragmentOutwardMax": 6.3,
+      "smashOutwardMin": 9.5,
+      "smashOutwardMax": 12.2,
+      "fragmentTangentialSpeed": 0.15,
+      "fragmentVerticalMin": -0.6,
+      "fragmentVerticalMax": 0.7,
+      "smashVerticalMin": 0.3,
+      "smashVerticalMax": 2.1,
+      "fragmentSpin": 2.4,
+      "fragmentYawSpin": 1.5,
+      "smashSpinMultiplier": 1.6,
+      "fragmentSpawnOffset": 0.08,
+      "fragmentFadeDuration": 0.22,
+      "fragmentOffscreenPadding": 0.3,
+      "fragmentOffscreenGrace": 0.15,
+      "confettiLifetime": 1.8,
+      "gravity": 13
+    },
+    "audio": {
+      "masterVolume": 0.32,
+      "bounceVolume": 0.18,
+      "passVolume": 0.17,
+      "activationVolume": 0.26,
+      "smashVolume": 0.36,
+      "deathVolume": 0.3,
+      "completionVolume": 0.27
+    },
+    "renderer": {
+      "pixelRatioLimit": 2,
+      "antialias": true
+    },
+    "save": {
+      "key": "screw-fall:save",
+      "version": 3
+    }
+  },
+  "generation": {
+    "version": 2,
+    "normalVersion": 2,
+    "flowVersion": 1,
+    "maxAttempts": 4,
+    "maxSilhouetteAttempts": 8,
+    "normalCount": [
+      42,
+      49
+    ],
+    "flowCount": [
+      45,
+      50
+    ],
+    "openingCount": 5,
+    "finalCount": 4,
+    "maxConsecutiveSpecial": 2,
+    "maxSpecialDensity": 0.2,
+    "challengeSpecialDensity": 0.12,
+    "movingHazardMaximum": 1.0471975511965976,
+    "readableHazardMultiplier": 0.65,
+    "maxRouteStep": 1.8849555921538759,
+    "routeTurnSpeed": 3.2,
+    "routeMargin": 0.13962634015954636,
+    "route": {
+      "directionDeadband": 0.10471975511965977,
+      "maxSameDirectionRun": 3,
+      "minReversalRate": 0.35,
+      "maxReversalRate": 0.65,
+      "minDirectionBalance": 0.6,
+      "maxNetRotationRatio": 0.25,
+      "alignmentPhysicalMargin": 0.04,
+      "maxAccidentalThreeRatio": 0.03,
+      "maxPlannedDropRatio": 0.23,
+      "dropStarts": [
+        8,
+        26
+      ],
+      "secondaryDropChance": {
+        "standard": 0.2,
+        "challenge": 0.55
+      },
+      "threeTurnPhraseChance": 0.18,
+      "dropCatchTurn": 1.8,
+      "dropRecoveryTurn": 0.3
+    },
+    "complexity": {
+      "sectionLength": 6,
+      "maxConsecutiveSmall": 2,
+      "costs": {
+        "largeReversal": 1,
+        "plannedDrop": 2
+      }
+    },
+    "profiles": {
+      "gentle": {
+        "rating": [
+          3,
+          4
+        ],
+        "gapWidth": [
+          1.53588974175501,
+          1.710422666954443
+        ],
+        "hazardWidth": [
+          0.5934119456780721,
+          0.9075712110370514
+        ],
+        "speed": [
+          0.2,
+          0.28
+        ],
+        "routeStep": [
+          1.4486232791552935,
+          1.6580627893946132
+        ],
+        "maxPlannedDrops": 1,
+        "levelBudget": 38,
+        "sectionBudget": 8
+      },
+      "standard": {
+        "rating": [
+          5,
+          6
+        ],
+        "gapWidth": [
+          1.3264502315156903,
+          1.53588974175501
+        ],
+        "hazardWidth": [
+          0.9773843811168246,
+          1.4660765716752369
+        ],
+        "speed": [
+          0.25,
+          0.4
+        ],
+        "routeStep": [
+          1.5009831567151233,
+          1.7278759594743864
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 62,
+        "sectionBudget": 11
+      },
+      "challenge": {
+        "rating": [
+          7,
+          8
+        ],
+        "gapWidth": [
+          1.1868238913561442,
+          1.3962634015954636
+        ],
+        "hazardWidth": [
+          1.3264502315156903,
+          1.8849555921538759
+        ],
+        "speed": [
+          0.35,
+          0.5
+        ],
+        "routeStep": [
+          1.5882496193148399,
+          1.8151424220741028
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 86,
+        "sectionBudget": 14
+      }
+    },
+    "breathing": {
+      "minWidth": 1.1519173063162575,
+      "maxWidth": 1.9547687622336491,
+      "period": [
+        2.2,
+        3.8
+      ]
+    },
+    "stinger": {
+      "safeWidth": [
+        0.4886921905584123,
+        0.7330382858376184
+      ],
+      "flankWidth": [
+        0.3141592653589793,
+        0.4886921905584123
+      ],
+      "maxPerStandard": 1,
+      "maxPerChallenge": 2
+    },
+    "wall": {
+      "lowHeight": 0.9,
+      "dividerHeight": 1.87,
+      "width": 0.12,
+      "angularEpsilon": 0.00001,
+      "verticalEpsilon": 1e-8,
+      "clearance": 0.11,
+      "maxDividers": 2
+    },
+    "flow": {
+      "rotations": [
+        1.65,
+        2.65
+      ],
+      "gapWidth": [
+        1.117010721276371,
+        1.43116998663535
+      ],
+      "maxStep": 0.41887902047863906,
+      "maxCurvature": 0.02617993877991494,
+      "maxTurnSpeed": 4.4
+    }
+  },
+  "motionLimits": {
+    "breathing": {
+      "minWidth": 1.1519173063162575,
+      "maxWidth": 1.9547687622336491,
+      "minPeriod": 2.2,
+      "maxPeriod": 3.8
+    },
+    "orbiting": {
+      "minSpeed": 0.2,
+      "maxSpeed": 0.55
+    },
+    "stinger": {
+      "minSafeWidth": 0.41887902047863906,
+      "maxSafeWidth": 0.7330382858376184,
+      "minFlankWidth": 0.24434609527920614,
+      "maxFlankWidth": 0.5235987755982988,
+      "minSpeed": 0.2,
+      "maxSpeed": 0.45
+    }
+  },
+  "walls": {
+    "lowHeight": 0.9,
+    "dividerHeight": 1.87,
+    "width": 0.12,
+    "angularEpsilon": 0.00001,
+    "verticalEpsilon": 1e-8
+  },
+  "visual": {
+    "hazardPulseHz": 0.8,
+    "hazardEmissiveMin": 0.035,
+    "hazardEmissiveRange": 0.045,
+    "hazardRibHeight": 0.045,
+    "hazardRibWidth": 0.048,
+    "hazardRibLength": 0.36,
+    "hazardRibSpacing": 0.18,
+    "wallEdgeWidth": 0.025,
+    "routeHeight": 0.035
+  },
+  "hazardCollision": {
+    "ballRadiusFraction": 0.08,
+    "physicalMargin": 0.012,
+    "maximumArcFraction": 0.2
+  },
+  "inspection": {
+    "ballInterpolation": "lerp(ball.previousY,ball.y,accumulator/fixedStep), ACTIVE/HOLDING only",
+    "cameraInterpolation": false,
+    "cameraFollow": "render dt driven toward current simulation low-water anchor",
+    "dynamicRenderTime": "current simulation animationTime, no interpolation",
+    "towerRotation": "immediate pointer authoritative angle; final render uses current angle",
+    "alphaClamped": false,
+    "collisionSnapshotReset": false,
+    "visibilitySnapshotReset": false,
+    "worldCoordinateRounding": false,
+    "animationGeometryRebuilt": false,
+    "debugDomIntervalSeconds": 0.25,
+    "requestAnimationFrame": "uncapped",
+    "accumulator": "add clamped delta; run up to12 ticks; modulo fixedStep at cap",
+    "hotLoopFindings": [
+      "ball interpolated but camera low-water and motion phase current",
+      "debug text rate limited4Hz already",
+      "dynamic segments and geometry buffers reused",
+      "energy class and progress transform written every render even unchanged"
+    ]
+  },
+  "controlledTerminalScheduleObservations": {
+    "hz60": {
+      "estimatedRafHz": 59.99999999999999,
+      "p50Ms": 16.666666666666668,
+      "p95Ms": 16.666666666666668,
+      "p99Ms": 16.666666666666668,
+      "zeroFrames": 0,
+      "multiFrames": 900,
+      "longFrames": 0,
+      "substepDistribution": [
+        0,
+        0,
+        240,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 5.88418203051333e-15,
+      "maximumTerminalContactFrameJump": 5.828670879282072e-15,
+      "minimumDynamicPhaseAdvance": 0.016666666666666666,
+      "maximumDynamicPhaseAdvance": 0.016666666666666666
+    },
+    "hz90": {
+      "estimatedRafHz": 90,
+      "p50Ms": 11.11111111111111,
+      "p95Ms": 11.11111111111111,
+      "p99Ms": 11.11111111111111,
+      "zeroFrames": 0,
+      "multiFrames": 300,
+      "longFrames": 0,
+      "substepDistribution": [
+        0,
+        160,
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 0.005650537225503793,
+      "maximumTerminalContactFrameJump": 0.005650537225503738,
+      "minimumDynamicPhaseAdvance": 0.008333333333333333,
+      "maximumDynamicPhaseAdvance": 0.016666666666666666
+    },
+    "hz120": {
+      "estimatedRafHz": 119.99999999999999,
+      "p50Ms": 8.333333333333334,
+      "p95Ms": 8.333333333333334,
+      "p99Ms": 8.333333333333334,
+      "zeroFrames": 0,
+      "multiFrames": 0,
+      "longFrames": 0,
+      "substepDistribution": [
+        0,
+        240,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 2.942091015256665e-15,
+      "maximumTerminalContactFrameJump": 1.942890293094024e-15,
+      "minimumDynamicPhaseAdvance": 0.008333333333333333,
+      "maximumDynamicPhaseAdvance": 0.008333333333333333
+    },
+    "alternating8_9": {
+      "estimatedRafHz": 117.6470588235294,
+      "p50Ms": 8.5,
+      "p95Ms": 9,
+      "p99Ms": 9,
+      "zeroFrames": 18,
+      "multiFrames": 35,
+      "longFrames": 0,
+      "substepDistribution": [
+        4,
+        228,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 0.008122644429924164,
+      "maximumTerminalContactFrameJump": 0.007898552760499888,
+      "minimumDynamicPhaseAdvance": 0,
+      "maximumDynamicPhaseAdvance": 0.016666666666666666
+    },
+    "occasionalLong": {
+      "estimatedRafHz": 111.11111111111111,
+      "p50Ms": 9,
+      "p95Ms": 25,
+      "p99Ms": 25,
+      "zeroFrames": 13,
+      "multiFrames": 241,
+      "longFrames": 224,
+      "substepDistribution": [
+        3,
+        173,
+        34,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 0.009860414667008932,
+      "maximumTerminalContactFrameJump": 0.007901112518280795,
+      "minimumDynamicPhaseAdvance": 0,
+      "maximumDynamicPhaseAdvance": 0.025
+    },
+    "mixed60_120": {
+      "estimatedRafHz": 119.99999999999999,
+      "p50Ms": 8.333333333333334,
+      "p95Ms": 16.666666666666668,
+      "p99Ms": 16.666666666666668,
+      "zeroFrames": 0,
+      "multiFrames": 360,
+      "longFrames": 360,
+      "substepDistribution": [
+        0,
+        144,
+        96,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminalContactScreenRange": 0.0009277658245038234,
+      "maximumTerminalContactFrameJump": 0.0009277658245028797,
+      "minimumDynamicPhaseAdvance": 0.008333333333333333,
+      "maximumDynamicPhaseAdvance": 0.016666666666666666
+    }
+  }
+}

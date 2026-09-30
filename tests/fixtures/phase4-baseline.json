@@ -1,0 +1,2039 @@
+{
+  "saveVersion": 4,
+  "config": {
+    "title": "Screw Fall",
+    "physics": {
+      "bounceGravity": 28,
+      "freeFallGravity": 24.5,
+      "bounceVelocity": 9.058875,
+      "maxDownwardSpeed": 18.4,
+      "ballRadius": 0.275,
+      "fixedStep": 0.008333333333333333,
+      "maxFrameDelta": 0.1,
+      "maxSubsteps": 12
+    },
+    "world": {
+      "platformSpacing": 2.25,
+      "ballOrbitRadius": 2.05,
+      "ballWorldAngle": 1.5707963267948966,
+      "innerRadius": 0.73,
+      "outerRadius": 2.85,
+      "platformThickness": 0.27
+    },
+    "input": {
+      "sensitivity": 5.2,
+      "multiplier": {
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "default": 1.2
+      },
+      "directionSign": 1,
+      "dragThreshold": 3,
+      "tapMaxDistance": 12,
+      "tapMaxDuration": 500
+    },
+    "smash": {
+      "threshold": 3
+    },
+    "timing": {
+      "deathDuration": 0.48,
+      "completionHold": 1
+    },
+    "camera": {
+      "followResponse": 6,
+      "fieldOfView": 40,
+      "distance": 13.8,
+      "height": 7.8,
+      "targetOffset": -1,
+      "pitchDegrees": 35.5,
+      "contactScreenAnchor": 0.43,
+      "maxContactScreenLag": 0.02,
+      "portraitWidth": 8.1,
+      "impactStrength": 0.09,
+      "smashStrength": 0.18
+    },
+    "particles": {
+      "maxParticles": 160,
+      "maxFragments": 120,
+      "passCount": 5,
+      "smashCount": 12,
+      "deathCount": 24,
+      "confettiCount": 64,
+      "lifetime": 0.65,
+      "impactLifetime": 0.42,
+      "fragmentLifetime": 1.2,
+      "fragmentChunkAngle": 0.7853981633974483,
+      "passFragmentCount": 10,
+      "smashFragmentCount": 12,
+      "fragmentOutwardMin": 5.2,
+      "fragmentOutwardMax": 6.3,
+      "smashOutwardMin": 9.5,
+      "smashOutwardMax": 12.2,
+      "fragmentTangentialSpeed": 0.15,
+      "fragmentVerticalMin": -0.6,
+      "fragmentVerticalMax": 0.7,
+      "smashVerticalMin": 0.3,
+      "smashVerticalMax": 2.1,
+      "fragmentSpin": 2.4,
+      "fragmentYawSpin": 1.5,
+      "smashSpinMultiplier": 1.6,
+      "fragmentSpawnOffset": 0.08,
+      "fragmentFadeDuration": 0.22,
+      "fragmentOffscreenPadding": 0.3,
+      "fragmentOffscreenGrace": 0.15,
+      "confettiLifetime": 1.8,
+      "gravity": 13
+    },
+    "audio": {
+      "masterVolume": 0.32,
+      "bounceVolume": 0.18,
+      "passVolume": 0.17,
+      "activationVolume": 0.26,
+      "smashVolume": 0.36,
+      "deathVolume": 0.3,
+      "completionVolume": 0.27
+    },
+    "renderer": {
+      "pixelRatioLimit": 2,
+      "antialias": true
+    },
+    "save": {
+      "key": "screw-fall:save",
+      "version": 4
+    }
+  },
+  "generation": {
+    "version": 4,
+    "normalVersion": 4,
+    "flowVersion": 2,
+    "maxAttempts": 4,
+    "maxSilhouetteAttempts": 8,
+    "normalCount": [
+      42,
+      49
+    ],
+    "flowCount": [
+      45,
+      50
+    ],
+    "openingCount": 5,
+    "finalCount": 4,
+    "maxConsecutiveSpecial": 2,
+    "maxSpecialDensity": 0.34,
+    "maxAnimatedConsecutive": 2,
+    "movingHazardMaximum": 1.0471975511965976,
+    "readableHazardMultiplier": 0.65,
+    "maxRouteStep": 1.8849555921538759,
+    "routeTurnSpeed": 3.2,
+    "routeMargin": 0.13962634015954636,
+    "route": {
+      "directionDeadband": 0.10471975511965977,
+      "maxSameDirectionRun": 3,
+      "minReversalRate": 0.35,
+      "maxReversalRate": 0.65,
+      "minDirectionBalance": 0.6,
+      "maxNetRotationRatio": 0.25,
+      "alignmentPhysicalMargin": 0.04,
+      "maxAccidentalThreeRatio": 0.03,
+      "maxPlannedDropRatio": 0.23,
+      "dropStarts": [
+        8,
+        26
+      ],
+      "secondaryDropChance": {
+        "standard": 0.2,
+        "challenge": 0.55
+      },
+      "threeTurnPhraseChance": 0.18,
+      "dropCatchTurn": 1.8,
+      "dropRecoveryTurn": 0.3
+    },
+    "complexity": {
+      "sectionLength": 6,
+      "maxConsecutiveSmall": 2,
+      "costs": {
+        "largeReversal": 1,
+        "plannedDrop": 2,
+        "wallFocused": 1,
+        "adjacentAnimation": 1.5,
+        "additionalWall": 0.5,
+        "singleTip": 1.25,
+        "doublePincer": 2.5,
+        "increasedAmplitude": 0.5,
+        "narrowPincer": 0.5,
+        "fastPincer": 0.5
+      }
+    },
+    "profiles": {
+      "gentle": {
+        "rating": [
+          3,
+          4
+        ],
+        "gapWidth": [
+          1.53588974175501,
+          1.710422666954443
+        ],
+        "hazardWidth": [
+          0.5934119456780721,
+          0.9075712110370514
+        ],
+        "speed": [
+          0.24,
+          0.336
+        ],
+        "stingerSpeed": [
+          0.24,
+          0.336
+        ],
+        "routeStep": [
+          1.4486232791552935,
+          1.6580627893946132
+        ],
+        "maxPlannedDrops": 1,
+        "levelBudget": 42,
+        "sectionBudget": 10,
+        "wallChance": 0.11,
+        "wallCount": [
+          1,
+          1
+        ],
+        "wallFocusedCount": [
+          1,
+          1
+        ],
+        "maxDividers": 1,
+        "animatedCount": [
+          0,
+          2
+        ],
+        "breathingVariants": [
+          0.8,
+          0.19,
+          0.01
+        ],
+        "hazardousOrbitChance": 0.15,
+        "breathingPeriod": [
+          2.7,
+          3.8
+        ]
+      },
+      "standard": {
+        "rating": [
+          5,
+          6
+        ],
+        "gapWidth": [
+          1.3264502315156903,
+          1.53588974175501
+        ],
+        "hazardWidth": [
+          0.9773843811168246,
+          1.4660765716752369
+        ],
+        "speed": [
+          0.3,
+          0.48
+        ],
+        "stingerSpeed": [
+          0.3,
+          0.46
+        ],
+        "routeStep": [
+          1.5009831567151233,
+          1.7278759594743864
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 85,
+        "sectionBudget": 16,
+        "wallChance": 0.74,
+        "wallCount": [
+          2,
+          4
+        ],
+        "wallFocusedCount": [
+          4,
+          5
+        ],
+        "maxDividers": 2,
+        "animatedCount": [
+          3,
+          6
+        ],
+        "breathingVariants": [
+          0.32,
+          0.43,
+          0.25
+        ],
+        "hazardousOrbitChance": 0.72,
+        "breathingPeriod": [
+          2.2,
+          3.3
+        ]
+      },
+      "challenge": {
+        "rating": [
+          7,
+          8
+        ],
+        "gapWidth": [
+          1.1868238913561442,
+          1.3962634015954636
+        ],
+        "hazardWidth": [
+          1.3264502315156903,
+          1.8849555921538759
+        ],
+        "speed": [
+          0.42,
+          0.6
+        ],
+        "stingerSpeed": [
+          0.42,
+          0.54
+        ],
+        "routeStep": [
+          1.5882496193148399,
+          1.8151424220741028
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 116,
+        "sectionBudget": 20,
+        "wallChance": 0.96,
+        "wallCount": [
+          3,
+          5
+        ],
+        "wallFocusedCount": [
+          5,
+          6
+        ],
+        "maxDividers": 3,
+        "animatedCount": [
+          5,
+          9
+        ],
+        "breathingVariants": [
+          0.17,
+          0.38,
+          0.45
+        ],
+        "hazardousOrbitChance": 0.84,
+        "breathingPeriod": [
+          1.9,
+          2.9
+        ]
+      }
+    },
+    "breathing": {
+      "minWidth": 1.1519173063162575,
+      "maxWidth": 2.234021442552742,
+      "sourceMinWidth": 1.1519173063162575,
+      "sourceMaxWidth": 1.9547687622336491,
+      "narrowOffset": 0.25,
+      "wideOffset": 0.17,
+      "amplitudeMultiplier": 1.875,
+      "lowerExpansionShare": 0.6,
+      "narrowThreshold": 1.2217304763960306,
+      "fastThreshold": 2.3,
+      "period": [
+        1.9,
+        3.8
+      ]
+    },
+    "distributionBounds": {
+      "wallLevelFraction": {
+        "gentle": [
+          0.15,
+          0.3
+        ],
+        "standard": [
+          0.7,
+          0.85
+        ],
+        "challenge": [
+          0.9,
+          1
+        ]
+      },
+      "lowWallFraction": [
+        0.65,
+        0.75
+      ],
+      "breathingVariants": {
+        "gentle": [
+          [
+            0.7,
+            0.85
+          ],
+          [
+            0.15,
+            0.25
+          ],
+          [
+            0,
+            0.05
+          ]
+        ],
+        "standard": [
+          [
+            0.25,
+            0.4
+          ],
+          [
+            0.35,
+            0.5
+          ],
+          [
+            0.2,
+            0.35
+          ]
+        ],
+        "challenge": [
+          [
+            0.1,
+            0.25
+          ],
+          [
+            0.3,
+            0.45
+          ],
+          [
+            0.35,
+            0.5
+          ]
+        ]
+      },
+      "hazardousAnimatedFraction": {
+        "gentle": [
+          0,
+          0.4
+        ],
+        "standard": [
+          0.55,
+          0.85
+        ],
+        "challenge": [
+          0.65,
+          0.95
+        ]
+      }
+    },
+    "stinger": {
+      "safeWidth": [
+        0.4886921905584123,
+        0.7330382858376184
+      ],
+      "flankWidth": [
+        0.3141592653589793,
+        0.4886921905584123
+      ],
+      "maxPerStandard": 1,
+      "maxPerChallenge": 2
+    },
+    "wall": {
+      "lowHeight": 0.9,
+      "dividerHeight": 1.87,
+      "width": 0.12,
+      "colliderInset": 0.01,
+      "clearanceEpsilon": 0.002,
+      "angularEpsilon": 0.00001,
+      "verticalEpsilon": 1e-8,
+      "clearance": 0.11,
+      "maxDividers": 2,
+      "dividerChance": 0.32,
+      "staticRecoveryCount": 2
+    },
+    "flow": {
+      "rotations": [
+        1.65,
+        2.1
+      ],
+      "gapWidth": [
+        1.117010721276371,
+        1.43116998663535
+      ],
+      "maxStep": 0.3490658503988659,
+      "maxCurvature": 0.02617993877991494,
+      "maxJerk": 0.01,
+      "maxTurnSpeed": 2.75,
+      "openingCount": [
+        5,
+        7
+      ],
+      "openingRateRatio": 0.52,
+      "openingMaxTurnSpeed": 2.15,
+      "routeWaveAmplitude": 0.06,
+      "human": {
+        "trials": 10,
+        "minimumSuccessRate": 0.8,
+        "maxFailureSectionRatio": 0.4,
+        "reactionDelay": [
+          0.1,
+          0.16
+        ],
+        "viewportSpeed": 0.75,
+        "viewportAcceleration": 5,
+        "trackingGain": 10,
+        "aimError": 0.05235987755982988,
+        "aimBias": 0.02617993877991494,
+        "steeringMargin": 0.035,
+        "moderateReactionDelay": [
+          0.18,
+          0.24
+        ],
+        "moderateViewportSpeed": 0.55,
+        "moderateViewportAcceleration": 3,
+        "moderateAimError": 0.08726646259971647,
+        "moderateAimBias": 0.04363323129985824
+      }
+    }
+  },
+  "sourceHashes": {
+    "CameraRig.js": "4c6ccd9a3ac449d80020b3ae2d78d16f7dec689d1e6c9627dc6e2286be5f4cae",
+    "CosmeticEffectManager.js": "64b6c93b8e855f522125825182eb676985a909d07a9c53437c6d7f88d56d8cae",
+    "DebugFlowView.js": "fdf4d04451ea383850157ea2bac7d2c3e00eb13ace75cec742e7df4b9b310fa4",
+    "DebugGeometry.js": "5cfa568d08058b6fcdd466f276dd79e4d8ec50c6ab2ca74750515ac6649e7a2d",
+    "EconomyAnalyzer.js": "2c3c7efc7ec87c4ca4846365b6a602b5e719a2b55eb243d0c637ac961a8c4d57",
+    "FlowFeasibility.js": "396ba8163c19775379a270cfb6b3304e2311cc249eac8153bf8c80f95c4b93fc",
+    "FlowLevelGenerator.js": "b6e42a2ccca5d9270743ccf554b14a31c46c44fea23c2c6115f78a443ad1cb90",
+    "FrameClock.js": "b38e42aacddcf16ab9bc331b5a83ab08880f13738165e2a7dbe2d0185cfb31ba",
+    "FrameDiagnostics.js": "fe81c199ff479458c9a1501109a728ea4154f7d728e242c9b75e4cc44885080f",
+    "Game.js": "1a84cc9cf919ced55e25c11bf552a98228f54697e6c22e8a7455117fa9bc84c2",
+    "GenerationConfig.js": "92cd208f3907d097c6af651ad920b3fcdf15fe5af840b6ae6e19fa45beaf9920",
+    "HazardCollision.js": "eba2269c0ea2b1fae537474f0be56f779ebaecba5a43ba1d78b378aecb8a285f",
+    "InputController.js": "f8351572daa571bfefe1d384d4daad8a372087b6f2037a756530e1734aaa5b8c",
+    "LevelCadence.js": "47886d5786233fd6cbbcd642b72d6fd68971e1a324ac57dacc244ea946863dcb",
+    "LevelGenerator.js": "661b3a60d533385f844fbc1e097cd838617ee6cb621949a1fae195f4d22ace18",
+    "LevelGeometry.js": "9c74b8f1f27cbdf9d2b931ca796c608ee82fa9f34950f91dd4ed43b86de9cc26",
+    "LevelManager.js": "00f419640ab8bab5bf2dcc5d1e830c161be426c1cf5f820b7aa0d93fafe59994",
+    "LevelValidator.js": "7b9929b646acf6ed2719700b13f6790b91b0720e799d7f77169492eec8903915",
+    "ObstacleConfig.js": "2c199cf8cb2f90f0ad7492f8b66cce34c06bddfe3bb2c8061d41ef270932ab17",
+    "PaintMarkPool.js": "8a504f34b9fa47cd24aa2a65e2df76e2fec5cd1a4ad782c4c1efdd75e8c0cf81",
+    "PaletteManager.js": "3c9235292b57f9223dc4d3b5dfb705673d9b3b69cd894dfb5d0d15c270edf281",
+    "ParticleSystem.js": "b9f35cd300fe4b4940da8e3813cd183438f57d911819139d6d104034271bf9a1",
+    "PincerGeometry.js": "15f5dd725e26d5377fb1ee1c6bb21182f519f0ab113f62e50b9bbf600b460876",
+    "Platform.js": "ec35062e25fbe8af12c30583533f7c5f245ffe91979c8b2f30cd44987760cee5",
+    "PlatformMotion.js": "d2c343578cf27049a17fb61d03979bb78c5a03d85097b4d930130b75505f31ec",
+    "PlatformSilhouettes.js": "5ff77cad0bd2352716c2d1b2b453a3a6b55a67ba3a364361f9a0b409dbcaae27",
+    "ProgressionDebug.js": "ec5667ed5d645637ac8f7cc7bbc5ab481523ee07c72e0f59ddc5b0303f2bd2f0",
+    "PrototypeLevels.js": "4c0fe4a9b0d9146572a3b0a5f4c0aa786ecb5fa4d32d9b004aa5d1a1a435d1bc",
+    "PurchaseCelebration.js": "c13d956ef2bb9524a8249c867ed847b0478e185fe087db7a51c085fa4b75211c",
+    "RenderTimeline.js": "afdbd89d5b75181c39379528624d264a8de07f3050f34471bde02a7a920ac1ed",
+    "RouteAnalysis.js": "69083bff3310ea8cc3a193f1b9b15aceff3bff71244674028cd14ee910b30c16",
+    "SaveManager.js": "00187577556be447bdfe919e42e908083d2804e90aeeb176db24fa539090e337",
+    "ScoreFormatter.js": "79c7469cd122838aee4a65019461122620eed5d22feff5232818319c0550e492",
+    "ScoreHUD.js": "fd7410c36cc757ea506ef311bd57d5eb341019026cc71f05596af98f3c7e6685",
+    "ScoringManager.js": "54d57857f0131e674bb6fef19f479255033d6885322c690ba1e49da8ecb35fc4",
+    "SeededRandom.js": "4d08b5cffb01b0902ed70fbdeb67af493a875a5987f2022305eb2fb5eedae549",
+    "SettingsController.js": "b378e2f2cadb399ba73616d34283ecb753437415c2dba752b4d9521ad5cbeafd",
+    "Simulation.js": "9c2a18b7fb2c69fcf95059045d308ce268f8570bfa778878c743d1e1998cded9",
+    "SkinCatalog.js": "11e8ad848a8c659c7b7a19a8fc1325f87012989d70c0401ff96c5c1961f30462",
+    "SkinManager.js": "ca0a0be0ca20294caeb10bbcbdd6457669bff1ddfb37417469c8a7f1de123010",
+    "SkinMeshFactory.js": "eae369a87b74f8ddb652d96b6aadbb71eddb753bbfa630aaf972cc0e61fb0fc8",
+    "SkinPreviewRenderer.js": "dbc2f700a29195692b58997d42cef25594ddf32dd2dbe27545dc1ac5394c38c9",
+    "SkinShopPanel.js": "4ee1ff09039580c97ad9b8bed4b3f1d3e08b407e122f60fa4d98411ad33e1101",
+    "SkinVisual.js": "392a626635b6e536884eaef18ede3a1a5b29ac517efaba1916af0aa41925c725",
+    "SoundManager.js": "9f1d0e9abd58dde23258352593bf6611ebb181beded73f4a534c69f59da96341",
+    "TerminalSpeed.js": "fa615551c7cd288ee19aec600321257fc038a4b6770ef095b64e978e0d6772a7",
+    "Viewport.js": "18be550a2402930615b560c058ae885da3ea39ec9f173149a77d498817b24ce7",
+    "VisualConfig.js": "ae65307d099eade88e740eab1c53dee0670343308a86389a0f61df5a1a003fdd",
+    "WallCollisionResolver.js": "707b71ffb55e2b072e54ade9c3a4abb48e7c67ad436e7fe3f53d7c913fb090e4",
+    "config.js": "3f2b8acc681165cbc4ab954570df30337f6d7592a48d569919bcc1c622821942",
+    "math.js": "761c42af082d7ad3df3dcb041ec0c3c5e7a4fe8e06dc1d9d962488b6157c1c6e",
+    "sensitivity.js": "0a40fcf18b986f4dda5ea9a7abe8dfb978b53bf3b4dfb19254bdbd33bd148fbd"
+  },
+  "skinCatalog": [
+    {
+      "id": "classic",
+      "name": "Classic",
+      "price": 0,
+      "category": "Core",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#f5dfa7"
+        ],
+        "roughness": 0.23,
+        "metalness": 0.08
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0,
+      "paletteAdaptive": true,
+      "performanceCost": "low",
+      "summary": "The original smooth ball.",
+      "effects": {
+        "palette": [
+          "#f5dfa7"
+        ],
+        "bounce": "basic",
+        "bounceCount": 0,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "basic",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "rubber",
+      "name": "Rubber",
+      "price": 750,
+      "category": "Core",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#efa961"
+        ],
+        "roughness": 0.94,
+        "metalness": 0
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Matte finish · soft impact rings",
+      "effects": {
+        "palette": [
+          "#efa961"
+        ],
+        "bounce": "ring",
+        "bounceCount": 1,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "marble",
+      "name": "Marble",
+      "price": 1250,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#f1eee5",
+          "#6b8d9a"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Original flowing veins · stone dust",
+      "texture": "marble",
+      "effects": {
+        "palette": [
+          "#f1eee5",
+          "#6b8d9a"
+        ],
+        "bounce": "dust",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "panel-ball",
+      "name": "Panel Ball",
+      "price": 1500,
+      "category": "Core",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#edcf7c",
+          "#365b76"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Curved diagonal panels · matching particles",
+      "texture": "panels",
+      "effects": {
+        "palette": [
+          "#edcf7c",
+          "#365b76"
+        ],
+        "bounce": "particles",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "split-tone",
+      "name": "Split Tone",
+      "price": 2000,
+      "category": "Core",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#91d6ce",
+          "#f1d381"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Two colours · light paint splashes",
+      "texture": "split",
+      "effects": {
+        "palette": [
+          "#91d6ce",
+          "#f1d381"
+        ],
+        "bounce": "paint",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": "dual",
+        "paintEvery": 1,
+        "paintOpacity": 0.7,
+        "paintSize": 0.54
+      }
+    },
+    {
+      "id": "facet",
+      "name": "Facet",
+      "price": 2500,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "facet"
+      },
+      "material": {
+        "colors": [
+          "#a9d8e6",
+          "#608ebd"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Sculpted faces · tiny coloured shards",
+      "effects": {
+        "palette": [
+          "#a9d8e6",
+          "#608ebd"
+        ],
+        "bounce": "shards",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "rounded-cube",
+      "name": "Rounded Cube",
+      "price": 3000,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "rounded-cube"
+      },
+      "material": {
+        "colors": [
+          "#edb5d3"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Soft corners · gentle airborne rotation",
+      "effects": {
+        "palette": [
+          "#edb5d3"
+        ],
+        "bounce": "particles",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "capsule",
+      "name": "Capsule",
+      "price": 3500,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "capsule"
+      },
+      "material": {
+        "colors": [
+          "#afdfb9",
+          "#4f989a"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Compact oval · a short ribbon",
+      "texture": "split",
+      "effects": {
+        "palette": [
+          "#afdfb9",
+          "#4f989a"
+        ],
+        "bounce": "particles",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "ribbon",
+        "trailLifetime": 0.21,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "halo",
+      "name": "Halo",
+      "price": 4000,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "halo"
+      },
+      "material": {
+        "colors": [
+          "#edc67c",
+          "#8cbdb8"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Compact ring and core · soft ring pulses",
+      "effects": {
+        "palette": [
+          "#edc67c",
+          "#8cbdb8"
+        ],
+        "bounce": "ring",
+        "bounceCount": 1,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "chrome",
+      "name": "Chrome",
+      "price": 5000,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#dce7ef",
+          "#6d8495"
+        ],
+        "roughness": 0.16,
+        "metalness": 0.72
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Satin reflections · silver shimmer",
+      "texture": "chrome",
+      "effects": {
+        "palette": [
+          "#dce7ef",
+          "#6d8495"
+        ],
+        "bounce": "shimmer",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "price": 6000,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "glass"
+      },
+      "material": {
+        "colors": [
+          "#b4e0e5",
+          "#f2edc8"
+        ],
+        "roughness": 0.15,
+        "metalness": 0.1,
+        "opacity": 0.72
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Visible glass shell · a gentle ripple",
+      "effects": {
+        "palette": [
+          "#b4e0e5",
+          "#f2edc8"
+        ],
+        "bounce": "ripple",
+        "bounceCount": 1,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "jelly",
+      "name": "Jelly",
+      "price": 6500,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "jelly"
+      },
+      "material": {
+        "colors": [
+          "#c1b4e8"
+        ],
+        "roughness": 0.2,
+        "metalness": 0,
+        "opacity": 0.88
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Soft translucent form · cosmetic wobble",
+      "effects": {
+        "palette": [
+          "#c1b4e8"
+        ],
+        "bounce": "ring",
+        "bounceCount": 1,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "crystal",
+      "name": "Crystal",
+      "price": 7500,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "crystal"
+      },
+      "material": {
+        "colors": [
+          "#b5c5ef",
+          "#daebed"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Cut crystal · small coloured sparkles",
+      "effects": {
+        "palette": [
+          "#b5c5ef",
+          "#daebed"
+        ],
+        "bounce": "sparkle",
+        "bounceCount": 6,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "disco",
+      "name": "Disco",
+      "price": 8000,
+      "category": "Materials",
+      "tier": "standard",
+      "geometry": {
+        "type": "disco"
+      },
+      "material": {
+        "colors": [
+          "#d1dfe5",
+          "#b6a5d4",
+          "#e5c58b"
+        ],
+        "roughness": 0.2,
+        "metalness": 0.55
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Small mirrored facets · restrained sparkle",
+      "texture": "disco",
+      "effects": {
+        "palette": [
+          "#d1dfe5",
+          "#b6a5d4",
+          "#e5c58b"
+        ],
+        "bounce": "sparkle",
+        "bounceCount": 6,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "none",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "orbit",
+      "name": "Orbit",
+      "price": 9000,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "orbit"
+      },
+      "material": {
+        "colors": [
+          "#b4cdec",
+          "#e7bd80"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "A compact decorative orbit · fine dust trail",
+      "effects": {
+        "palette": [
+          "#b4cdec",
+          "#e7bd80"
+        ],
+        "bounce": "dust",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "dust",
+        "trailLifetime": 0.2,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "neon-core",
+      "name": "Neon Core",
+      "price": 10000,
+      "category": "Effects",
+      "tier": "standard",
+      "geometry": {
+        "type": "neon"
+      },
+      "material": {
+        "colors": [
+          "#6ee0d1",
+          "#344b63"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Luminous core · a fading neon trace",
+      "effects": {
+        "palette": [
+          "#6ee0d1",
+          "#344b63"
+        ],
+        "bounce": "ring",
+        "bounceCount": 1,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "neon",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "duo-splash",
+      "name": "Duo Splash",
+      "price": 11000,
+      "category": "Effects",
+      "tier": "standard",
+      "geometry": {
+        "type": "duo"
+      },
+      "material": {
+        "colors": [
+          "#f3d260",
+          "#75a8eb"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Two-colour paint · paired trail colours",
+      "texture": "split",
+      "effects": {
+        "palette": [
+          "#ffd52a",
+          "#2478ed"
+        ],
+        "bounce": "paint",
+        "bounceCount": 7,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "dual",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": "dual",
+        "paintEvery": 1,
+        "paintOpacity": 0.74,
+        "paintSize": 0.56
+      }
+    },
+    {
+      "id": "spectrum",
+      "name": "Spectrum",
+      "price": 12500,
+      "category": "Effects",
+      "tier": "standard",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#edd76b",
+          "#80d3ba",
+          "#83b7e8",
+          "#c3a3dd"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.1,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Colour bands · cycling trails and occasional paint",
+      "texture": "spectrum",
+      "effects": {
+        "palette": [
+          "#edd76b",
+          "#80d3ba",
+          "#83b7e8",
+          "#c3a3dd"
+        ],
+        "bounce": "paint",
+        "bounceCount": 5,
+        "pass": "particles",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 2,
+        "paintOpacity": 0.72,
+        "paintSize": 0.56
+      }
+    },
+    {
+      "id": "twist",
+      "name": "Twist",
+      "price": 13500,
+      "category": "Shapes",
+      "tier": "standard",
+      "geometry": {
+        "type": "twist"
+      },
+      "material": {
+        "colors": [
+          "#d1bcdf",
+          "#8fcee0"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.7,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "An original twisted solid · a fine ribbon",
+      "effects": {
+        "palette": [
+          "#d1bcdf",
+          "#8fcee0"
+        ],
+        "bounce": "particles",
+        "bounceCount": 5,
+        "pass": "none",
+        "passCount": 0,
+        "trail": "ribbon",
+        "trailLifetime": 0.26,
+        "smash": "particles",
+        "paint": false,
+        "paintEvery": 1,
+        "paintOpacity": 0.36,
+        "paintSize": 0.18
+      }
+    },
+    {
+      "id": "paint-burst",
+      "name": "Paint Burst",
+      "price": 15000,
+      "category": "Effects",
+      "tier": "standard",
+      "geometry": {
+        "type": "paint"
+      },
+      "material": {
+        "colors": [
+          "#f2d46c",
+          "#79b8e5",
+          "#b6a0d8",
+          "#85c9a2"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.48,
+      "spinRate": 0.52,
+      "paletteAdaptive": false,
+      "performanceCost": "low",
+      "summary": "Patchwork facets · multicolour paint on every safe bounce",
+      "texture": "patchwork",
+      "effects": {
+        "palette": [
+          "#f2d46c",
+          "#79b8e5",
+          "#b6a0d8",
+          "#85c9a2"
+        ],
+        "bounce": "paint",
+        "bounceCount": 8,
+        "pass": "particles",
+        "passCount": 3,
+        "trail": "spectrum",
+        "trailLifetime": 0.24,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.76,
+        "paintSize": 0.58
+      }
+    },
+    {
+      "id": "auric-gold",
+      "name": "Auric Gold",
+      "price": 1000000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#ffc029",
+          "#fff1ac",
+          "#ba650d"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.13,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Polished liquid gold · moving reflections",
+      "surface": "auric-gold",
+      "effects": {
+        "palette": [
+          "#ffc029",
+          "#fff1ac",
+          "#ba650d"
+        ],
+        "bounce": "sparkle",
+        "bounceCount": 8,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "gold",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.8,
+        "paintSize": 0.62
+      }
+    },
+    {
+      "id": "plasma-core",
+      "name": "Plasma Core",
+      "price": 500000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "plasma"
+      },
+      "material": {
+        "colors": [
+          "#28e7ff",
+          "#a239ff",
+          "#365dff"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.08,
+      "paletteAdaptive": false,
+      "performanceCost": "four-draws",
+      "summary": "Contained energy · branching electric filaments",
+      "surface": "plasma-core",
+      "effects": {
+        "palette": [
+          "#28e7ff",
+          "#a239ff",
+          "#365dff"
+        ],
+        "bounce": "shards",
+        "bounceCount": 9,
+        "pass": "sparkle",
+        "passCount": 1,
+        "trail": "neon",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    },
+    {
+      "id": "pearl-shift",
+      "name": "Pearl Shift",
+      "price": 100000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#f0e2ff",
+          "#eb3dbd",
+          "#24d8e5"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.13,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Pearlescent finish · shifting rainbow sheen",
+      "surface": "pearl-shift",
+      "effects": {
+        "palette": [
+          "#f0e2ff",
+          "#eb3dbd",
+          "#24d8e5"
+        ],
+        "bounce": "paint",
+        "bounceCount": 7,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    },
+    {
+      "id": "prism",
+      "name": "Prism",
+      "price": 150000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "prism"
+      },
+      "material": {
+        "colors": [
+          "#16dfff",
+          "#fa2dba",
+          "#ffc735"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0.18,
+        0.35,
+        -0.1
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.25,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Cut chromatic faces · separated spectrum colours",
+      "surface": "prism",
+      "effects": {
+        "palette": [
+          "#16dfff",
+          "#fa2dba",
+          "#ffc735"
+        ],
+        "bounce": "shards",
+        "bounceCount": 8,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    },
+    {
+      "id": "obsidian-vein",
+      "name": "Obsidian Vein",
+      "price": 350000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#171b30",
+          "#ffc53d",
+          "#ff731d"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.13,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Polished obsidian · molten gold veins",
+      "surface": "obsidian-vein",
+      "texture": "obsidian",
+      "effects": {
+        "palette": [
+          "#171b30",
+          "#ffc53d",
+          "#ff731d"
+        ],
+        "bounce": "paint",
+        "bounceCount": 7,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    },
+    {
+      "id": "nebula",
+      "name": "Nebula",
+      "price": 250000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#24218c",
+          "#b830ec",
+          "#f943b0",
+          "#daeaff"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.13,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Deep cosmic clouds · quiet star glints",
+      "surface": "nebula",
+      "texture": "nebula",
+      "effects": {
+        "palette": [
+          "#5924db",
+          "#be38ef",
+          "#fa48b3"
+        ],
+        "bounce": "paint",
+        "bounceCount": 7,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "price": 200000,
+      "category": "Premium",
+      "tier": "premium",
+      "geometry": {
+        "type": "sphere"
+      },
+      "material": {
+        "colors": [
+          "#21ed9e",
+          "#12d6ed",
+          "#953efa"
+        ],
+        "roughness": 0.32,
+        "metalness": 0.05
+      },
+      "visualScale": 1,
+      "visualEnvelopeRadius": 0.341,
+      "colliderRadius": 0.275,
+      "previewOrientation": [
+        0,
+        0,
+        0
+      ],
+      "previewSpinRate": 0.32,
+      "spinRate": 0.13,
+      "paletteAdaptive": false,
+      "performanceCost": "two-draws",
+      "summary": "Flowing emerald, cyan and violet light",
+      "surface": "aurora",
+      "texture": "aurora",
+      "effects": {
+        "palette": [
+          "#21ed9e",
+          "#12d6ed",
+          "#953efa"
+        ],
+        "bounce": "paint",
+        "bounceCount": 7,
+        "pass": "sparkle",
+        "passCount": 2,
+        "trail": "spectrum",
+        "trailLifetime": 0.23,
+        "smash": "particles",
+        "paint": "multi",
+        "paintEvery": 1,
+        "paintOpacity": 0.78,
+        "paintSize": 0.6
+      }
+    }
+  ],
+  "levels": [
+    {
+      "number": 1,
+      "kind": "normal",
+      "seed": 810161622,
+      "count": 44,
+      "hash": "bc6a7857d2e8b861ff678c2f3adc2a2d4443bc1a8157f1dc9067c44755005a70"
+    },
+    {
+      "number": 2,
+      "kind": "normal",
+      "seed": 2368092935,
+      "count": 47,
+      "hash": "fab94ccc6f3324c8fcba1ddeb10c3717065349170e19709d3159df45c1584859"
+    },
+    {
+      "number": 9,
+      "kind": "normal",
+      "seed": 675685214,
+      "count": 50,
+      "hash": "13c1fe1b4947cf1d27568bf7830faa83943153cc53ea87d5cb56b05e8423a897"
+    },
+    {
+      "number": 10,
+      "kind": "flow",
+      "seed": 2206077480,
+      "count": 50,
+      "hash": "ff1f3f4fc0d535ae3da4a0fde030ed6a9f0ee5528611f4e878e3b6115e8e5372"
+    },
+    {
+      "number": 11,
+      "kind": "normal",
+      "seed": 1727925301,
+      "count": 47,
+      "hash": "1efde3d3ba2b0b0e1c5898c6a85b40328690ac184db1e104605237491c84d067"
+    },
+    {
+      "number": 50,
+      "kind": "flow",
+      "seed": 3344462508,
+      "count": 50,
+      "hash": "bd6094955f7608e7b8c00b8889d7423ac4d36e813105a112c82c06bb649c64d0"
+    },
+    {
+      "number": 90,
+      "kind": "flow",
+      "seed": 679502496,
+      "count": 48,
+      "hash": "d36f093358bc110e7928f300a05a8c95a5ea4d43e777018a537a225576f9a60c"
+    },
+    {
+      "number": 99,
+      "kind": "normal",
+      "seed": 1507946709,
+      "count": 50,
+      "hash": "1af103eb68c038e4f26e99b62dc7a3009eee8296220b13a5ae379d43dcdf93da"
+    },
+    {
+      "number": 100,
+      "kind": "flow",
+      "seed": 47071151,
+      "count": 50,
+      "hash": "96d8091959bb9e9c8c016a8a57d17339655eae3569155f7dc83c282dbf04e478"
+    },
+    {
+      "number": 101,
+      "kind": "normal",
+      "seed": 2091771197,
+      "count": 50,
+      "hash": "ae1573c5c24f2479723ec23cdf9462b55f76360a9a2bbdcd637742788ed392cd"
+    },
+    {
+      "number": 110,
+      "kind": "flow",
+      "seed": 3036403229,
+      "count": 48,
+      "hash": "d4b608775f9724608c4db76eccc1e63980366387139ca96444cc9cfa9e703b54"
+    },
+    {
+      "number": 182,
+      "kind": "normal",
+      "seed": 3245585568,
+      "count": 48,
+      "hash": "7df6fe9c59f1efe6c4ce848b311e73e8ef3ce8d1a633cac95f83f7442e031102"
+    },
+    {
+      "number": 190,
+      "kind": "flow",
+      "seed": 1297651093,
+      "count": 46,
+      "hash": "b2a950c642481c2863a8d63cf6d24c19a848699c489c1629208edbdaacaff316"
+    },
+    {
+      "number": 199,
+      "kind": "normal",
+      "seed": 878768072,
+      "count": 50,
+      "hash": "b5592f5462f1fc8053c7102df20d2ce2200020667483289c4a5ca2c2d74f9fd1"
+    },
+    {
+      "number": 200,
+      "kind": "flow",
+      "seed": 3165422102,
+      "count": 50,
+      "hash": "3f2917f08706eb6d4a39bf28ab03e7ec34a5eed8415d328e9d0f5163410f9266"
+    },
+    {
+      "number": 201,
+      "kind": "normal",
+      "seed": 273360688,
+      "count": 46,
+      "hash": "f87dc6cfbb8218b074881afae2e17baa2be8115ead61db1544cfc0ee29230c8f"
+    },
+    {
+      "number": 1757,
+      "kind": "normal",
+      "seed": 3711721203,
+      "count": 45,
+      "hash": "104283e2a72b02675f0622a15e0083d15fd3e1083c1ca921df18083b83a9f532"
+    },
+    {
+      "number": 99999,
+      "kind": "normal",
+      "seed": 3229128954,
+      "count": 47,
+      "hash": "d00931e97f1f8a9893b2f2b701b11952e604f062ac8aea52aa781d35fca70804"
+    },
+    {
+      "number": 1000000,
+      "kind": "flow",
+      "seed": 352550524,
+      "count": 48,
+      "hash": "7ff87789bfa811d1ecffa6b72f7fcc83b2645bb519c4e94831e8fef5f9018db4"
+    },
+    {
+      "number": 999999999,
+      "kind": "normal",
+      "seed": 3189609446,
+      "count": 50,
+      "hash": "eb35794df436478b43529461ff9e30e5211cac0ee0d88c3f76a8c0acb406439a"
+    },
+    {
+      "number": 1000000001,
+      "kind": "normal",
+      "seed": 944134709,
+      "count": 45,
+      "hash": "bb649476d0c8f459984c698b38aeae0e82280a18457764ca503bab6588166727"
+    },
+    {
+      "number": 9007199254740991,
+      "kind": "normal",
+      "seed": 697196249,
+      "count": 47,
+      "hash": "5d34d59a868dfbc14a8db2fa942059bc2f161a0558d0aa4c8f49ccfdab52ca51"
+    }
+  ]
+}

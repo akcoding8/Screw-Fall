@@ -1,0 +1,543 @@
+{
+  "config": {
+    "title": "Screw Fall",
+    "physics": {
+      "bounceGravity": 28,
+      "freeFallGravity": 24.5,
+      "bounceVelocity": 9.058875,
+      "maxDownwardSpeed": 18.4,
+      "ballRadius": 0.275,
+      "fixedStep": 0.008333333333333333,
+      "maxFrameDelta": 0.1,
+      "maxSubsteps": 12
+    },
+    "world": {
+      "platformSpacing": 2.25,
+      "ballOrbitRadius": 2.05,
+      "ballWorldAngle": 1.5707963267948966,
+      "innerRadius": 0.73,
+      "outerRadius": 2.85,
+      "platformThickness": 0.27
+    },
+    "input": {
+      "sensitivity": 5.2,
+      "multiplier": {
+        "min": 0.5,
+        "max": 3,
+        "step": 0.1,
+        "default": 1.2
+      },
+      "directionSign": 1,
+      "dragThreshold": 3,
+      "tapMaxDistance": 12,
+      "tapMaxDuration": 500
+    },
+    "smash": {
+      "threshold": 3
+    },
+    "timing": {
+      "deathDuration": 0.48,
+      "completionHold": 1
+    },
+    "camera": {
+      "followResponse": 6,
+      "fieldOfView": 40,
+      "distance": 13.8,
+      "height": 7.8,
+      "targetOffset": -1,
+      "pitchDegrees": 35.5,
+      "contactScreenAnchor": 0.43,
+      "maxContactScreenLag": 0.02,
+      "portraitWidth": 8.1,
+      "impactStrength": 0.09,
+      "smashStrength": 0.18
+    },
+    "particles": {
+      "maxParticles": 160,
+      "maxFragments": 120,
+      "passCount": 5,
+      "smashCount": 12,
+      "deathCount": 24,
+      "confettiCount": 64,
+      "lifetime": 0.65,
+      "impactLifetime": 0.42,
+      "fragmentLifetime": 1.2,
+      "fragmentChunkAngle": 0.7853981633974483,
+      "passFragmentCount": 10,
+      "smashFragmentCount": 12,
+      "fragmentOutwardMin": 5.2,
+      "fragmentOutwardMax": 6.3,
+      "smashOutwardMin": 9.5,
+      "smashOutwardMax": 12.2,
+      "fragmentTangentialSpeed": 0.15,
+      "fragmentVerticalMin": -0.6,
+      "fragmentVerticalMax": 0.7,
+      "smashVerticalMin": 0.3,
+      "smashVerticalMax": 2.1,
+      "fragmentSpin": 2.4,
+      "fragmentYawSpin": 1.5,
+      "smashSpinMultiplier": 1.6,
+      "fragmentSpawnOffset": 0.08,
+      "fragmentFadeDuration": 0.22,
+      "fragmentOffscreenPadding": 0.3,
+      "fragmentOffscreenGrace": 0.15,
+      "confettiLifetime": 1.8,
+      "gravity": 13
+    },
+    "audio": {
+      "masterVolume": 0.32,
+      "bounceVolume": 0.18,
+      "passVolume": 0.17,
+      "activationVolume": 0.26,
+      "smashVolume": 0.36,
+      "deathVolume": 0.3,
+      "completionVolume": 0.27
+    },
+    "renderer": {
+      "pixelRatioLimit": 2,
+      "antialias": true
+    },
+    "save": {
+      "key": "screw-fall:save",
+      "version": 3
+    }
+  },
+  "visual": {
+    "hazardPulseHz": 0.8,
+    "hazardEmissiveMin": 0.035,
+    "hazardEmissiveRange": 0.065,
+    "hazardRibHeight": 0.045,
+    "hazardRibWidth": 0.048,
+    "hazardRibLength": 0.36,
+    "hazardRibSpacing": 0.18,
+    "wallEdgeWidth": 0.025,
+    "routeHeight": 0.035
+  },
+  "generation": {
+    "version": 4,
+    "normalVersion": 4,
+    "flowVersion": 2,
+    "maxAttempts": 4,
+    "maxSilhouetteAttempts": 8,
+    "normalCount": [
+      42,
+      49
+    ],
+    "flowCount": [
+      45,
+      50
+    ],
+    "openingCount": 5,
+    "finalCount": 4,
+    "maxConsecutiveSpecial": 2,
+    "maxSpecialDensity": 0.34,
+    "maxAnimatedConsecutive": 2,
+    "movingHazardMaximum": 1.0471975511965976,
+    "readableHazardMultiplier": 0.65,
+    "maxRouteStep": 1.8849555921538759,
+    "routeTurnSpeed": 3.2,
+    "routeMargin": 0.13962634015954636,
+    "route": {
+      "directionDeadband": 0.10471975511965977,
+      "maxSameDirectionRun": 3,
+      "minReversalRate": 0.35,
+      "maxReversalRate": 0.65,
+      "minDirectionBalance": 0.6,
+      "maxNetRotationRatio": 0.25,
+      "alignmentPhysicalMargin": 0.04,
+      "maxAccidentalThreeRatio": 0.03,
+      "maxPlannedDropRatio": 0.23,
+      "dropStarts": [
+        8,
+        26
+      ],
+      "secondaryDropChance": {
+        "standard": 0.2,
+        "challenge": 0.55
+      },
+      "threeTurnPhraseChance": 0.18,
+      "dropCatchTurn": 1.8,
+      "dropRecoveryTurn": 0.3
+    },
+    "complexity": {
+      "sectionLength": 6,
+      "maxConsecutiveSmall": 2,
+      "costs": {
+        "largeReversal": 1,
+        "plannedDrop": 2,
+        "wallFocused": 1,
+        "adjacentAnimation": 1.5,
+        "additionalWall": 0.5,
+        "singleTip": 1.25,
+        "doublePincer": 2.5,
+        "increasedAmplitude": 0.5,
+        "narrowPincer": 0.5,
+        "fastPincer": 0.5
+      }
+    },
+    "profiles": {
+      "gentle": {
+        "rating": [
+          3,
+          4
+        ],
+        "gapWidth": [
+          1.53588974175501,
+          1.710422666954443
+        ],
+        "hazardWidth": [
+          0.5934119456780721,
+          0.9075712110370514
+        ],
+        "speed": [
+          0.24,
+          0.336
+        ],
+        "stingerSpeed": [
+          0.24,
+          0.336
+        ],
+        "routeStep": [
+          1.4486232791552935,
+          1.6580627893946132
+        ],
+        "maxPlannedDrops": 1,
+        "levelBudget": 42,
+        "sectionBudget": 10,
+        "wallChance": 0.11,
+        "wallCount": [
+          1,
+          1
+        ],
+        "wallFocusedCount": [
+          1,
+          1
+        ],
+        "maxDividers": 1,
+        "animatedCount": [
+          0,
+          2
+        ],
+        "breathingVariants": [
+          0.8,
+          0.19,
+          0.01
+        ],
+        "hazardousOrbitChance": 0.15,
+        "breathingPeriod": [
+          2.7,
+          3.8
+        ]
+      },
+      "standard": {
+        "rating": [
+          5,
+          6
+        ],
+        "gapWidth": [
+          1.3264502315156903,
+          1.53588974175501
+        ],
+        "hazardWidth": [
+          0.9773843811168246,
+          1.4660765716752369
+        ],
+        "speed": [
+          0.3,
+          0.48
+        ],
+        "stingerSpeed": [
+          0.3,
+          0.46
+        ],
+        "routeStep": [
+          1.5009831567151233,
+          1.7278759594743864
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 85,
+        "sectionBudget": 16,
+        "wallChance": 0.74,
+        "wallCount": [
+          2,
+          4
+        ],
+        "wallFocusedCount": [
+          4,
+          5
+        ],
+        "maxDividers": 2,
+        "animatedCount": [
+          3,
+          6
+        ],
+        "breathingVariants": [
+          0.32,
+          0.43,
+          0.25
+        ],
+        "hazardousOrbitChance": 0.72,
+        "breathingPeriod": [
+          2.2,
+          3.3
+        ]
+      },
+      "challenge": {
+        "rating": [
+          7,
+          8
+        ],
+        "gapWidth": [
+          1.1868238913561442,
+          1.3962634015954636
+        ],
+        "hazardWidth": [
+          1.3264502315156903,
+          1.8849555921538759
+        ],
+        "speed": [
+          0.42,
+          0.6
+        ],
+        "stingerSpeed": [
+          0.42,
+          0.54
+        ],
+        "routeStep": [
+          1.5882496193148399,
+          1.8151424220741028
+        ],
+        "maxPlannedDrops": 2,
+        "levelBudget": 116,
+        "sectionBudget": 20,
+        "wallChance": 0.96,
+        "wallCount": [
+          3,
+          5
+        ],
+        "wallFocusedCount": [
+          5,
+          6
+        ],
+        "maxDividers": 3,
+        "animatedCount": [
+          5,
+          9
+        ],
+        "breathingVariants": [
+          0.17,
+          0.38,
+          0.45
+        ],
+        "hazardousOrbitChance": 0.84,
+        "breathingPeriod": [
+          1.9,
+          2.9
+        ]
+      }
+    },
+    "breathing": {
+      "minWidth": 1.1519173063162575,
+      "maxWidth": 2.234021442552742,
+      "sourceMinWidth": 1.1519173063162575,
+      "sourceMaxWidth": 1.9547687622336491,
+      "narrowOffset": 0.25,
+      "wideOffset": 0.17,
+      "amplitudeMultiplier": 1.875,
+      "lowerExpansionShare": 0.6,
+      "narrowThreshold": 1.2217304763960306,
+      "fastThreshold": 2.3,
+      "period": [
+        1.9,
+        3.8
+      ]
+    },
+    "distributionBounds": {
+      "wallLevelFraction": {
+        "gentle": [
+          0.15,
+          0.3
+        ],
+        "standard": [
+          0.7,
+          0.85
+        ],
+        "challenge": [
+          0.9,
+          1
+        ]
+      },
+      "lowWallFraction": [
+        0.65,
+        0.75
+      ],
+      "breathingVariants": {
+        "gentle": [
+          [
+            0.7,
+            0.85
+          ],
+          [
+            0.15,
+            0.25
+          ],
+          [
+            0,
+            0.05
+          ]
+        ],
+        "standard": [
+          [
+            0.25,
+            0.4
+          ],
+          [
+            0.35,
+            0.5
+          ],
+          [
+            0.2,
+            0.35
+          ]
+        ],
+        "challenge": [
+          [
+            0.1,
+            0.25
+          ],
+          [
+            0.3,
+            0.45
+          ],
+          [
+            0.35,
+            0.5
+          ]
+        ]
+      },
+      "hazardousAnimatedFraction": {
+        "gentle": [
+          0,
+          0.4
+        ],
+        "standard": [
+          0.55,
+          0.85
+        ],
+        "challenge": [
+          0.65,
+          0.95
+        ]
+      }
+    },
+    "stinger": {
+      "safeWidth": [
+        0.4886921905584123,
+        0.7330382858376184
+      ],
+      "flankWidth": [
+        0.3141592653589793,
+        0.4886921905584123
+      ],
+      "maxPerStandard": 1,
+      "maxPerChallenge": 2
+    },
+    "wall": {
+      "lowHeight": 0.9,
+      "dividerHeight": 1.87,
+      "width": 0.12,
+      "colliderInset": 0.01,
+      "clearanceEpsilon": 0.002,
+      "angularEpsilon": 0.00001,
+      "verticalEpsilon": 1e-8,
+      "clearance": 0.11,
+      "maxDividers": 2,
+      "dividerChance": 0.32,
+      "staticRecoveryCount": 2
+    },
+    "flow": {
+      "rotations": [
+        1.65,
+        2.1
+      ],
+      "gapWidth": [
+        1.117010721276371,
+        1.43116998663535
+      ],
+      "maxStep": 0.3490658503988659,
+      "maxCurvature": 0.02617993877991494,
+      "maxJerk": 0.01,
+      "maxTurnSpeed": 2.75,
+      "openingCount": [
+        5,
+        7
+      ],
+      "openingRateRatio": 0.52,
+      "openingMaxTurnSpeed": 2.15,
+      "routeWaveAmplitude": 0.06,
+      "human": {
+        "trials": 10,
+        "minimumSuccessRate": 0.8,
+        "maxFailureSectionRatio": 0.4,
+        "reactionDelay": [
+          0.1,
+          0.16
+        ],
+        "viewportSpeed": 0.75,
+        "viewportAcceleration": 5,
+        "trackingGain": 10,
+        "aimError": 0.05235987755982988,
+        "aimBias": 0.02617993877991494,
+        "steeringMargin": 0.035,
+        "moderateReactionDelay": [
+          0.18,
+          0.24
+        ],
+        "moderateViewportSpeed": 0.55,
+        "moderateViewportAcceleration": 3,
+        "moderateAimError": 0.08726646259971647,
+        "moderateAimBias": 0.04363323129985824
+      }
+    }
+  },
+  "sourceHashes": {
+    "CameraRig.js": "4c6ccd9a3ac449d80020b3ae2d78d16f7dec689d1e6c9627dc6e2286be5f4cae",
+    "DebugFlowView.js": "fdf4d04451ea383850157ea2bac7d2c3e00eb13ace75cec742e7df4b9b310fa4",
+    "DebugGeometry.js": "5cfa568d08058b6fcdd466f276dd79e4d8ec50c6ab2ca74750515ac6649e7a2d",
+    "FlowFeasibility.js": "396ba8163c19775379a270cfb6b3304e2311cc249eac8153bf8c80f95c4b93fc",
+    "FlowLevelGenerator.js": "b6e42a2ccca5d9270743ccf554b14a31c46c44fea23c2c6115f78a443ad1cb90",
+    "FrameClock.js": "b38e42aacddcf16ab9bc331b5a83ab08880f13738165e2a7dbe2d0185cfb31ba",
+    "FrameDiagnostics.js": "fe81c199ff479458c9a1501109a728ea4154f7d728e242c9b75e4cc44885080f",
+    "Game.js": "80de028d4b62098d016d72e362c925dddf0006abbbdbf8ef35fb283512a7fc8c",
+    "GenerationConfig.js": "92cd208f3907d097c6af651ad920b3fcdf15fe5af840b6ae6e19fa45beaf9920",
+    "HazardCollision.js": "eba2269c0ea2b1fae537474f0be56f779ebaecba5a43ba1d78b378aecb8a285f",
+    "InputController.js": "f8351572daa571bfefe1d384d4daad8a372087b6f2037a756530e1734aaa5b8c",
+    "LevelCadence.js": "47886d5786233fd6cbbcd642b72d6fd68971e1a324ac57dacc244ea946863dcb",
+    "LevelGenerator.js": "661b3a60d533385f844fbc1e097cd838617ee6cb621949a1fae195f4d22ace18",
+    "LevelGeometry.js": "9c74b8f1f27cbdf9d2b931ca796c608ee82fa9f34950f91dd4ed43b86de9cc26",
+    "LevelManager.js": "00f419640ab8bab5bf2dcc5d1e830c161be426c1cf5f820b7aa0d93fafe59994",
+    "LevelValidator.js": "7b9929b646acf6ed2719700b13f6790b91b0720e799d7f77169492eec8903915",
+    "ObstacleConfig.js": "2c199cf8cb2f90f0ad7492f8b66cce34c06bddfe3bb2c8061d41ef270932ab17",
+    "PaletteManager.js": "77880e8aed77e117b71cfed19666cbb6258fc7b87fc231066a3a05c5f1be7ae6",
+    "ParticleSystem.js": "b9f35cd300fe4b4940da8e3813cd183438f57d911819139d6d104034271bf9a1",
+    "PincerGeometry.js": "15f5dd725e26d5377fb1ee1c6bb21182f519f0ab113f62e50b9bbf600b460876",
+    "Platform.js": "ec35062e25fbe8af12c30583533f7c5f245ffe91979c8b2f30cd44987760cee5",
+    "PlatformMotion.js": "d2c343578cf27049a17fb61d03979bb78c5a03d85097b4d930130b75505f31ec",
+    "PlatformSilhouettes.js": "5ff77cad0bd2352716c2d1b2b453a3a6b55a67ba3a364361f9a0b409dbcaae27",
+    "PrototypeLevels.js": "4c0fe4a9b0d9146572a3b0a5f4c0aa786ecb5fa4d32d9b004aa5d1a1a435d1bc",
+    "RenderTimeline.js": "afdbd89d5b75181c39379528624d264a8de07f3050f34471bde02a7a920ac1ed",
+    "RouteAnalysis.js": "69083bff3310ea8cc3a193f1b9b15aceff3bff71244674028cd14ee910b30c16",
+    "SaveManager.js": "f149cd9b891a416581f02ac9c306d51444082976969a18099b0567660ba7a722",
+    "SeededRandom.js": "4d08b5cffb01b0902ed70fbdeb67af493a875a5987f2022305eb2fb5eedae549",
+    "SettingsController.js": "b378e2f2cadb399ba73616d34283ecb753437415c2dba752b4d9521ad5cbeafd",
+    "Simulation.js": "9c2a18b7fb2c69fcf95059045d308ce268f8570bfa778878c743d1e1998cded9",
+    "SoundManager.js": "8b1609f8379bd7b854db728984b61302660a1424065be681f9c5c5cb426c61eb",
+    "TerminalSpeed.js": "fa615551c7cd288ee19aec600321257fc038a4b6770ef095b64e978e0d6772a7",
+    "Viewport.js": "18be550a2402930615b560c058ae885da3ea39ec9f173149a77d498817b24ce7",
+    "VisualConfig.js": "ae65307d099eade88e740eab1c53dee0670343308a86389a0f61df5a1a003fdd",
+    "WallCollisionResolver.js": "707b71ffb55e2b072e54ade9c3a4abb48e7c67ad436e7fe3f53d7c913fb090e4",
+    "config.js": "103576c39a2bb09aa5041d029bc9557fccee5fd28497764354e16f21a19f7e29",
+    "math.js": "761c42af082d7ad3df3dcb041ec0c3c5e7a4fe8e06dc1d9d962488b6157c1c6e",
+    "sensitivity.js": "0a40fcf18b986f4dda5ea9a7abe8dfb978b53bf3b4dfb19254bdbd33bd148fbd"
+  }
+}
