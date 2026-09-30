@@ -8,7 +8,7 @@ import { TAU } from '../src/game/math.js';
 import { GENERATION } from '../src/game/GenerationConfig.js';
 import { CONFIG } from '../src/game/config.js';
 import { BRITISH_MILESTONE_KIND, BRITISH_MILESTONE_GENERATOR_VERSION } from '../src/game/BritishMilestone.js';
-import { createHash } from 'node:crypto';
+import { compareLevelBaseline } from './level-baseline.mjs';
 
 const numbers = [...Array.from({ length: 5000 }, (_, i) => i + 1),
   ...Array.from({ length: 1000 }, (_, i) => i + 100001),
@@ -220,8 +220,10 @@ if (bounds) {
 }
 const phase22PlacementBaseline = JSON.parse(readFileSync(new URL('../artifacts/phase22-before-23-placement.json', import.meta.url), 'utf8'));
 const phase4Baseline = JSON.parse(readFileSync(new URL('../tests/fixtures/phase4-baseline.json', import.meta.url), 'utf8'));
+const derivedWidths = JSON.parse(readFileSync(new URL('../tests/fixtures/phase4-derived-widths.json', import.meta.url), 'utf8'));
 const unchangedRepresentativeLevels = phase4Baseline.levels.filter(level => level.number % 100 !== 0).map(sample => ({
-  levelNumber: sample.number, kind: sample.kind, matches: createHash('sha256').update(JSON.stringify(generateLevel(sample.number))).digest('hex') === sample.hash,
+  levelNumber: sample.number, kind: sample.kind,
+  ...compareLevelBaseline(generateLevel(sample.number), sample, derivedWidths.levels[sample.number]),
 }));
 for (const sample of unchangedRepresentativeLevels) if (!sample.matches) failures.push({ levelNumber: sample.levelNumber, errors: ['Non-milestone geometry changed from Phase 4 baseline'] });
 const result = { phase22PlacementBaseline, phase22Baseline, distributionFailures, phase21ObstacleBaseline, baselineComparisons, unchangedRepresentativeLevels,

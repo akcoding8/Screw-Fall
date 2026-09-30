@@ -1,7 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createHash } from 'node:crypto';
 import * as THREE from 'three';
 import baseline from './fixtures/phase4-baseline.json';
+import derivedWidths from './fixtures/phase4-derived-widths.json';
+import { compareLevelBaseline } from '../scripts/level-baseline.mjs';
 import { GENERATION } from '../src/game/GenerationConfig.js';
 import { cadenceForLevel } from '../src/game/LevelCadence.js';
 import { generateLevel, NORMAL_GENERATOR_VERSION, FLOW_GENERATOR_VERSION } from '../src/game/LevelGenerator.js';
@@ -35,8 +36,9 @@ describe('British milestone cadence with unchanged ordinary generation', () => {
   });
 
   it.each(baseline.levels.filter(level => level.number % 100 !== 0))('preserves complete Level $number geometry and metadata hashes', sample => {
-    const hash = createHash('sha256').update(JSON.stringify(generateLevel(sample.number))).digest('hex');
-    expect(hash).toBe(sample.hash);
+    const result = compareLevelBaseline(generateLevel(sample.number), sample, derivedWidths.levels[sample.number]);
+    expect(result.differences).toEqual([]);
+    expect(result.hash).toBe(sample.hash);
   });
 
   it('adds an independently versioned generator without changing any ordinary tuning', () => {
